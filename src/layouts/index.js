@@ -19,10 +19,14 @@ export default function BasicLayout(props) {
   const [balance, get_balance] = useBalance();
   const [collapsed, setCollapsed] = useState(false);
 
+  const handleToCreateCommodityOrder = useCallback(() => {
+    navigate("create_commodity_order");
+  }, [navigate]);
+
   const handleRightContentRender = useCallback(() => {
     return (
       <Space>
-        <Button type="primary" icon={(<FileDoneOutlined />)}>投放广告</Button>
+        <Button type="primary" icon={(<FileDoneOutlined />)} onClick={handleToCreateCommodityOrder}>投放广告</Button>
         <Popover
           trigger="click"
           title="钱包信息"
@@ -53,9 +57,9 @@ export default function BasicLayout(props) {
       rightContentRender={handleRightContentRender}
       onCollapse={setCollapsed}
       headerContentRender={() => (
-        <div onClick={() => setCollapsed(!collapsed)} style={{ cursor: "pointer", fontSize: "16px" }}>
+        <span onClick={() => setCollapsed(!collapsed)} style={{ cursor: "pointer", fontSize: "16px" }}>
           {collapsed ? (<MenuUnfoldOutlined />) : (<MenuFoldOutlined />)}
-        </div>
+        </span>
       )}
     >
       <Outlet />

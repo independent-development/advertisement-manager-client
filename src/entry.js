@@ -5,6 +5,7 @@ import BasicLayout from "@/layouts";
 import LoginPage from "@/pages/LoginPage";
 import OrderManage from "@/pages/OrderManage";
 import CommodityRecord from "@/pages/CommodityRecord";
+import CreateCommodityOrder from "@/pages/CreateCommodityOrder";
 import UserCenter from "@/pages/UserCenter";
 
 export default () => {
@@ -12,6 +13,7 @@ export default () => {
     <Routes>
       <Route path="/login" element={(<LoginPage />)} />
       <Route path="/" element={(<BasicLayout />)}>
+        <Route path="/create_commodity_order" element={(<CreateCommodityOrder />)} />
         <Route path="/order_manage" element={(<OrderManage />)} />
         <Route path="/commodity_record" element={(<CommodityRecord />)} />
         <Route path="/user_center" element={(<UserCenter />)} />
