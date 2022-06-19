@@ -7,7 +7,7 @@ import { Checkbox, Space } from "antd";
 // import css from "./style.scss";
 // import css from "./style.less";
 
-export default function PleaseholderSelect(props) {
+export default function PleaceholderSelect(props) {
   const { value, onChange, ...otherProps } = props;
   return (
     <Checkbox.Group value={value} onChange={onChange} {...otherProps}>
@@ -34,10 +34,10 @@ export default function PleaseholderSelect(props) {
 };
 
 
-PleaseholderSelect.propTypes = {
+PleaceholderSelect.propTypes = {
 
 };
-PleaseholderSelect.defaultProps = {
+PleaceholderSelect.defaultProps = {
   value: "",
   onChange() { }
 };
