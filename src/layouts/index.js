@@ -59,6 +59,7 @@ export default function BasicLayout(props) {
   return (
     <ProLayout
       fixSiderbar
+      fixedHeader
       route={router_config}
       collapsed={collapsed}
       collapsedButtonRender={false}

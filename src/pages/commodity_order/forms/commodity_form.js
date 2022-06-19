@@ -20,7 +20,7 @@ const form_layout = {
   initialValues: {
     calculate_type: "DAY",
     calculate_value: 1,
-    pleaceholder: "HOME_TOP"
+    pleaceholder: ["HOME_TOP"]
   }
 };
 
@@ -67,7 +67,7 @@ export default function CommodityForm(props) {
             <Input placeholder="请输入广告标题(最大36个字符)" />
           </Form.Item>
           <Form.Item name="discription" label="广告描述" rules={discription}>
-            <Input.TextArea placeholder="请输入广告描述(最大200个字符)" />
+            <Input.TextArea style={{ resize: "none" }} rows={4} placeholder="请输入广告描述(最大200个字符)" />
           </Form.Item>
           <Form.Item name="link_url" label="跳转链接" rules={link_url} validateTrigger="onBlur">
             <Input placeholder="请输入广告需要跳转的链接URL(http://或https://)" />
