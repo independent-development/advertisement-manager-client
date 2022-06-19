@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { Form } from "antd";
 import validator from "validator";
-import { Form, Input } from "antd";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
 
 // import css from "./style.scss";
 // import css from "./style.less";
+import CommodityLinkURLInput from "@/components/inputer/CommodityLinkURLInput";
 
 const link_url = [{
   required: false,
@@ -25,7 +26,7 @@ const link_url = [{
 export default function CommodityLinkURL(props) {
   return (
     <Form.Item name="link_url" label="跳转链接" rules={link_url} validateTrigger="onBlur">
-      <Input placeholder="请输入广告需要跳转的链接URL(http://或https://)" />
+      <CommodityLinkURLInput />
     </Form.Item>
   )
 };
