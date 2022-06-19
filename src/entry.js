@@ -2,11 +2,11 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import BasicLayout from "@/layouts";
-import LoginPage from "@/pages/LoginPage";
-import OrderManage from "@/pages/OrderManage";
-import CommodityRecord from "@/pages/CommodityRecord";
-import CreateCommodityOrder from "@/pages/CreateCommodityOrder";
-import UserCenter from "@/pages/UserCenter";
+import LoginPage from "@/pages/login_page";
+import OrderManage from "@/pages/order_manage";
+import CommodityRecord from "@/pages/commodity_record";
+import CreateCommodityOrder from "@/pages/commodity_order/submodules/create_commodity_order";
+import UserCenter from "@/pages/user_center";
 
 export default () => {
   return (

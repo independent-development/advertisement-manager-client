@@ -6,7 +6,7 @@ import React from "react";
 // import css from "./style.scss";
 import css from "./style.less";
 
-import TronLink from "./components/TronLink";
+import TronLink from "./components/tron_link";
 
 export default function LoginPage(props) {
   return (

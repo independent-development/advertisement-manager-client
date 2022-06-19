@@ -6,23 +6,23 @@ import { PageContainer } from "@ant-design/pro-components";
 
 // import css from "./style.scss";
 // import css from "./style.less";
+import CommodityList from "./components/commodity_list";
 
-import OrderList from "./components/OrderList";
 
-export default function OrderManage(props) {
+export default function CommodityRecord(props) {
   return (
-    <PageContainer content="订单列表">
-      <OrderList />
+    <PageContainer content="广告列表">
+      <CommodityList />
     </PageContainer>
   )
 };
 
 
-OrderManage.propTypes = {
+CommodityRecord.propTypes = {
 
 
 };
-OrderManage.defaultProps = {
+CommodityRecord.defaultProps = {
 
 
 };
