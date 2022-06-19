@@ -19,8 +19,8 @@ export default function PleaceholderSelect(props) {
           <Checkbox style={{ width: 150 }} value="PAGE_RIGHT">页面右侧</Checkbox>
         </Space>
         <Space>
-          <Checkbox style={{ width: 150 }} value="PLAY_START">视频片头</Checkbox>
-          <Checkbox style={{ width: 150 }} value="PLAY_END">视频片尾</Checkbox>
+          <Checkbox style={{ width: 150 }} value="VIDEO_START">视频片头</Checkbox>
+          <Checkbox style={{ width: 150 }} value="VIDEO_END">视频片尾</Checkbox>
         </Space>
       </Space>
     </Checkbox.Group>

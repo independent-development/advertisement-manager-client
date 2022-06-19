@@ -18,7 +18,7 @@ export default function ResourceLinkInput(props) {
       </Input.Group>
     )
   }
-  if (resource_type === "OSS") {
+  if (resource_type === "OSS_URL") {
     return (
       <Upload.Dragger {...otherProps} style={{ width: "50%" }}>
         <p className="ant-upload-drag-icon">
@@ -32,7 +32,7 @@ export default function ResourceLinkInput(props) {
       </Upload.Dragger>
     )
   }
-  if (resource_type === "URL") {
+  if (resource_type === "CUSTOM_URL") {
     return (
       <Input.Group compact>
         <Input value={value} onChange={onChange} placeholder="请填写外部资源链接(必须带上http或者https前缀)" style={{ width: 500 }} />

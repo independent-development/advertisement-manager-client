@@ -7,8 +7,8 @@ export default {
   initialValues: {
     calculate_type: "DAY",
     calculate_value: 1,
-    pleaceholder: ["HOME_TOP"],
+    pleaceholder: ["PAGE_TOP"],
     content_type: "IMAGE",
-    resource_type: "OSS"
+    resource_type: "OSS_URL"
   }
 };

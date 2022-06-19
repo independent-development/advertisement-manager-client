@@ -12,21 +12,21 @@ export default function ResourceTypeRadio(props) {
 
   useEffect(() => {
     if (content_type === "HTML5") {
-      form.setFieldsValue({ "resource_type": "URL" });
+      form.setFieldsValue({ "resource_type": "CUSTOM_URL" });
     };
   }, [form, content_type]);
 
   if (content_type === "HTML5") {
     return (
       <Radio.Group value={value} onChange={onChange}  {...otherProps}>
-        <Radio.Button value="URL" style={{ width: 300, textAlign: "center" }}>外部链接</Radio.Button>
+        <Radio.Button value="CUSTOM_URL" style={{ width: 300, textAlign: "center" }}>外部链接</Radio.Button>
       </Radio.Group>
     )
   }
   return (
     <Radio.Group value={value} onChange={onChange} {...otherProps}>
-      <Radio.Button value="OSS" style={{ width: 150, textAlign: "center" }}>上传文件</Radio.Button>
-      <Radio.Button value="URL" style={{ width: 150, textAlign: "center" }}>外部链接</Radio.Button>
+      <Radio.Button value="OSS_URL" style={{ width: 150, textAlign: "center" }}>上传文件</Radio.Button>
+      <Radio.Button value="CUSTOM_URL" style={{ width: 150, textAlign: "center" }}>外部链接</Radio.Button>
     </Radio.Group>
   )
 };
