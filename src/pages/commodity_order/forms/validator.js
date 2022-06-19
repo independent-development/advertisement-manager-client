@@ -15,6 +15,21 @@ export const pleaceholder = [{
   message: "请选择展示位置"
 }];
 
+export const content_type = [{
+  required: true,
+  message: "请选择广告类型"
+}];
+
+export const resource_type = [{
+  required: true,
+  message: "请选择资源类型"
+}];
+
+export const resource_link = [{
+  required: true,
+  message: "请上传资源或填写外部链接"
+}];
+
 export const title = [{
   max: 36,
   required: false,
@@ -27,10 +42,6 @@ export const discription = [{
   message: "请检查广告描述文案的长度"
 }];
 
-export const content_url = [{
-  required: true,
-  message: "请上传广告内容"
-}];
 
 export const link_url = [{
   required: false,

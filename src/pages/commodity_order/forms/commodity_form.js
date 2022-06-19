@@ -8,10 +8,13 @@ import { ProCard } from "@ant-design/pro-components";
 // import css from "./style.scss";
 // import css from "./style.less";
 
+import ResourceLink from "@/components/inputer/ResourceLink";
+import ContentTypeRadio from "@/components/radios/ContentTypeRadio";
+import ResourceTypeRadio from "@/components/radios/ResourceTypeRadio";
 import PleaceholderSelect from "@/components/selecter/PleaceholderSelect";
 import CalculateTypeSelect from "@/components/selecter/CalculateTypeSelect";
 
-import { calculate_type, calculate_value, pleaceholder, title, discription, content_url, link_url } from "./validator";
+import { calculate_type, calculate_value, pleaceholder, content_type, resource_type, resource_link, title, discription, link_url } from "./validator";
 
 const form_layout = {
   autoComplete: "off",
@@ -20,7 +23,9 @@ const form_layout = {
   initialValues: {
     calculate_type: "DAY",
     calculate_value: 1,
-    pleaceholder: ["HOME_TOP"]
+    pleaceholder: ["HOME_TOP"],
+    content_type: "IMAGE",
+    resource_type: "OSS"
   }
 };
 
@@ -41,7 +46,7 @@ export default function CommodityForm(props) {
   return (
     <Form {...form_layout} form={form} onValuesChange={handleValuesChange}>
       <ProCard ghost direction="column" gutter={[16, 16]}>
-        <ProCard title="计费配置">
+        <ProCard title="基础费用配置">
           <Form.Item name="calculate_type" label="计费方式" rules={calculate_type}>
             <CalculateTypeSelect />
           </Form.Item>
@@ -60,8 +65,26 @@ export default function CommodityForm(props) {
           </Form.Item>
         </ProCard>
         <ProCard title="详细配置">
-          <Form.Item name="content_url" label="广告内容" rules={content_url}>
-            <Input.TextArea placeholder="请输入广告详情(最大200个字符)" />
+          <Form.Item name="content_type" label="广告类型" rules={content_type}>
+            <ContentTypeRadio />
+          </Form.Item>
+          <Form.Item noStyle shouldUpdate>
+            {(form) => {
+              return (
+                <Form.Item name="resource_type" label="资源类型" rules={resource_type}>
+                  <ResourceTypeRadio form={form} content_type={form.getFieldValue("content_type")} />
+                </Form.Item>
+              )
+            }}
+          </Form.Item>
+          <Form.Item noStyle shouldUpdate>
+            {({ getFieldValue }) => {
+              return (
+                <Form.Item name="resource_link" label="资源链接" rules={resource_link}>
+                  <ResourceLink content_type={getFieldValue("content_type")} resource_type={getFieldValue("resource_type")} />
+                </Form.Item>
+              )
+            }}
           </Form.Item>
           <Form.Item name="title" label="广告标题" rules={title}>
             <Input placeholder="请输入广告标题(最大36个字符)" />
