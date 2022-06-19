@@ -16,7 +16,7 @@ const pleaceholder = [{
 
 export default function Placeholder(props) {
   return (
-    <Form.Item name="pleaceholder" label="展示位置" rules={pleaceholder}>
+    <Form.Item name="pleaceholder" label="投放位置" rules={pleaceholder}>
       <PleaceholderSelect />
     </Form.Item>
   )

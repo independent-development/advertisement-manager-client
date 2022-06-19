@@ -26,7 +26,7 @@ export default function CalculateValue(props) {
         const calculate_type = getFieldValue("calculate_type");
         return (
           <Form.Item name="calculate_value" label="展示周期" rules={calculate_value}>
-            <InputNumber min={1} addonAfter={calculate_type ? addonAfter[calculate_type] : ""} />
+            <InputNumber min={1} style={{ width: 300 }} addonAfter={calculate_type ? addonAfter[calculate_type] : ""} />
           </Form.Item>
         )
       }}

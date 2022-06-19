@@ -12,15 +12,15 @@ export default function ContentTypeRadio(props) {
   const { value, onChange, ...otherProps } = props;
   return (
     <Radio.Group value={value} onChange={onChange} {...otherProps}>
-      <Radio.Button value="VIDEO">
+      <Radio.Button value="VIDEO" style={{ width: 100, textAlign: "center" }}>
         <VideoCameraOutlined />
         <span>视频</span>
       </Radio.Button>
-      <Radio.Button value="IMAGE">
+      <Radio.Button value="IMAGE" style={{ width: 100, textAlign: "center" }}>
         <FileImageOutlined />
         <span>图片</span>
       </Radio.Button>
-      <Radio.Button value="HTML5">
+      <Radio.Button value="HTML5" style={{ width: 100, textAlign: "center" }}>
         <Html5Outlined />
         <span>HTML5</span>
       </Radio.Button>

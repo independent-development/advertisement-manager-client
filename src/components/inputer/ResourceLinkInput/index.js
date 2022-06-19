@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Upload, Input } from "antd";
+import { Upload, Button, Input } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
@@ -12,7 +12,10 @@ export default function ResourceLinkInput(props) {
   const { content_type, resource_type, value, onChange, ...otherProps } = props;
   if (content_type === "HTML5") {
     return (
-      <Input placeholder="请填写外部资源链接" />
+      <Input.Group compact>
+        <Input value={value} onChange={onChange} placeholder="请填写外部资源链接(必须带上http或者https前缀)" style={{ width: 500 }} />
+        <Button type="primary" onClick={() => window.open(value)}>测试链接</Button>
+      </Input.Group>
     )
   }
   if (resource_type === "OSS") {
@@ -31,7 +34,10 @@ export default function ResourceLinkInput(props) {
   }
   if (resource_type === "URL") {
     return (
-      <Input placeholder="请填写外部资源链接" />
+      <Input.Group compact>
+        <Input value={value} onChange={onChange} placeholder="请填写外部资源链接(必须带上http或者https前缀)" style={{ width: 500 }} />
+        <Button type="primary" onClick={() => window.open(value)}>测试链接</Button>
+      </Input.Group>
     )
   }
   return null;

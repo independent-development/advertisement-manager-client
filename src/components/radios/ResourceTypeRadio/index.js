@@ -18,15 +18,15 @@ export default function ResourceTypeRadio(props) {
 
   if (content_type === "HTML5") {
     return (
-      <Radio.Group value={value} onChange={onChange} {...otherProps}>
-        <Radio.Button value="URL">外部链接</Radio.Button>
+      <Radio.Group value={value} onChange={onChange}  {...otherProps}>
+        <Radio.Button value="URL" style={{ width: 300, textAlign: "center" }}>外部链接</Radio.Button>
       </Radio.Group>
     )
   }
   return (
     <Radio.Group value={value} onChange={onChange} {...otherProps}>
-      <Radio.Button value="OSS">上传文件</Radio.Button>
-      <Radio.Button value="URL">外部链接</Radio.Button>
+      <Radio.Button value="OSS" style={{ width: 150, textAlign: "center" }}>上传文件</Radio.Button>
+      <Radio.Button value="URL" style={{ width: 150, textAlign: "center" }}>外部链接</Radio.Button>
     </Radio.Group>
   )
 };
