@@ -13,6 +13,9 @@ export default function TronLink(props) {
   const navigate = useNavigate();
 
   const handleConnectWallte = useCallback(async () => {
+    if (!tronWeb.defaultAddress.base58) {
+      return message.warning("请解锁钱包!");
+    }
     const result = await tronLink.request({ method: "tron_requestAccounts" });
     if (result.code === 200) {
       navigate("/order_manage");

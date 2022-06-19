@@ -16,7 +16,8 @@ const form_layout = {
   wrapperCol: { flex: "auto" },
   initialValues: {
     calculate_type: "DAY",
-    calculate_value: 1
+    calculate_value: 1,
+    pleaceholder: "HOME_TOP"
   }
 };
 
@@ -73,8 +74,8 @@ export default function CreateCommodityOrder(props) {
             <Space>
               <div>10 (USDT)</div>
               <Button type="default">重新填写</Button>
-              <Button type="primary">立即支付</Button>
               <Button type="default">创建订单(稍后支付)</Button>
+              <Button type="primary">立即支付</Button>
             </Space>
           </ProCard>
         </ProCard>

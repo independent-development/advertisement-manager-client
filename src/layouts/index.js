@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useCallback } from "react";
 import { Avatar, Space, Button, Popover } from "antd";
 import { Outlet, useNavigate } from "react-router-dom";
 import { ProLayout } from "@ant-design/pro-components";
+import React, { useState, useEffect, useCallback } from "react";
 import { FileDoneOutlined, WalletOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
@@ -18,6 +18,15 @@ export default function BasicLayout(props) {
   const navigate = useNavigate();
   const [balance, get_balance] = useBalance();
   const [collapsed, setCollapsed] = useState(false);
+
+  const handleRedirect = useCallback(() => {
+    !tronWeb.defaultAddress.base58 ? navigate("/login") : void (0);
+  }, [navigate]);
+
+  useEffect(() => {
+    window.addEventListener("tronLink#initialized", handleRedirect);
+    return () => window.removeEventListener("tronLink#initialized", handleRedirect);
+  }, [handleRedirect]);
 
   const handleToCreateCommodityOrder = useCallback(() => {
     navigate("create_commodity_order");
