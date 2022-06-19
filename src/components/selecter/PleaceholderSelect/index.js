@@ -13,20 +13,14 @@ export default function PleaceholderSelect(props) {
     <Checkbox.Group value={value} onChange={onChange} {...otherProps}>
       <Space direction="vertical">
         <Space>
-          <Checkbox style={{ width: 150 }} value="HOME_TOP">主页头部</Checkbox>
-          <Checkbox style={{ width: 150 }} value="HOME_BOTTOM">主页底部</Checkbox>
-          <Checkbox style={{ width: 150 }} value="HOME_LEFT">主页左侧</Checkbox>
-          <Checkbox style={{ width: 150 }} value="HOME_RIGHT">主页右侧</Checkbox>
+          <Checkbox style={{ width: 150 }} value="PAGE_TOP">页面顶部</Checkbox>
+          <Checkbox style={{ width: 150 }} value="PAGE_BOTTOM">页面底部</Checkbox>
+          <Checkbox style={{ width: 150 }} value="PAGE_LEFT">页面左侧</Checkbox>
+          <Checkbox style={{ width: 150 }} value="PAGE_RIGHT">页面右侧</Checkbox>
         </Space>
         <Space>
-          <Checkbox style={{ width: 150 }} value="DETAIL_TOP">详情页顶部</Checkbox>
-          <Checkbox style={{ width: 150 }} value="DETAIL_BOTTOM">详情页底部</Checkbox>
-          <Checkbox style={{ width: 150 }} value="DETAIL_LEFT">详情页左侧</Checkbox>
-          <Checkbox style={{ width: 150 }} value="DETAIL_RIGHT">详情页右侧</Checkbox>
-        </Space>
-        <Space>
-          <Checkbox style={{ width: 150 }} value="PLAY_START">播放开始</Checkbox>
-          <Checkbox style={{ width: 150 }} value="PLAY_END">播放结束</Checkbox>
+          <Checkbox style={{ width: 150 }} value="PLAY_START">视频片头</Checkbox>
+          <Checkbox style={{ width: 150 }} value="PLAY_END">视频片尾</Checkbox>
         </Space>
       </Space>
     </Checkbox.Group>
