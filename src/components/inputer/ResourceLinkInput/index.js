@@ -8,7 +8,7 @@ import { InboxOutlined } from "@ant-design/icons";
 // import css from "./style.scss";
 // import css from "./style.less";
 
-export default function ResourceLink(props) {
+export default function ResourceLinkInput(props) {
   const { content_type, resource_type, value, onChange, ...otherProps } = props;
   if (content_type === "HTML5") {
     return (
@@ -38,11 +38,11 @@ export default function ResourceLink(props) {
 };
 
 
-ResourceLink.propTypes = {
+ResourceLinkInput.propTypes = {
 
 
 };
-ResourceLink.defaultProps = {
+ResourceLinkInput.defaultProps = {
   value: "",
   onChange() { }
 };
