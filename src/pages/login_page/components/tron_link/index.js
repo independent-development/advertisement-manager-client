@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Button, message } from "antd";
-import React, { useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-// import classnames from "classnames";
+import React, { useEffect, useCallback } from "react";
 // import propTypes from "prop-types";
+// import classnames from "classnames";
 
 // import css from "./style.scss";
 // import css from "./style.less";
@@ -27,7 +27,10 @@ export default function TronLink(props) {
   }, [navigate]);
 
   const handleWallteCallback = useCallback(async () => {
-    if (tronLink.ready) {
+    if (!window.tronLink) {
+      return false;
+    }
+    if (window.tronLink.ready) {
       await handleConnectWallte();
     }
   }, [handleConnectWallte]);
@@ -35,9 +38,7 @@ export default function TronLink(props) {
   useEffect(() => {
     handleWallteCallback();
     window.addEventListener('tronLink#initialized', handleWallteCallback);
-    return () => {
-      window.removeEventListener('tronLink#initialized', handleWallteCallback);
-    };
+    return () => window.removeEventListener('tronLink#initialized', handleWallteCallback);
   }, [handleWallteCallback]);
 
   return (
@@ -48,9 +49,7 @@ export default function TronLink(props) {
 
 TronLink.propTypes = {
 
-
 };
 TronLink.defaultProps = {
-
 
 };
