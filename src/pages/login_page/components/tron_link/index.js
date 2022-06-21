@@ -37,8 +37,8 @@ export default function TronLink(props) {
 
   useEffect(() => {
     handleWallteCallback();
-    window.addEventListener('tronLink#initialized', handleWallteCallback);
-    return () => window.removeEventListener('tronLink#initialized', handleWallteCallback);
+    window.addEventListener("tronLink#initialized", handleWallteCallback);
+    return () => window.removeEventListener("tronLink#initialized", handleWallteCallback);
   }, [handleWallteCallback]);
 
   return (
