@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Space, Table, Button } from "antd";
+import moment from "moment";
+import { Space, Table, Button, Tooltip } from "antd";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
 
@@ -8,33 +9,47 @@ import { Space, Table, Button } from "antd";
 // import css from "./style.less";
 
 const columns = [{
-  title: "广告编号",
+  title: "编号",
   align: "center",
-  dataIndex: "commodity_id"
+  dataIndex: "commodity_id",
+  render(value) {
+    return (
+      <Tooltip title={value} style={{ whiteSpace: "nowrap" }}>
+        <span>{`${value.substring(0, 8)}...`}</span>
+      </Tooltip>
+    );
+  }
 }, {
-  title: "订单编号",
+  title: "订单状态",
   align: "center",
-  dataIndex: "fk_transaction_id"
+  dataIndex: "price"
 }, {
   title: "投放状态",
   align: "center",
   dataIndex: "status"
 }, {
+  title: "投放页面",
+  align: "center",
+  dataIndex: "subject_detail_page"
+}, {
   title: "投放位置",
   align: "center",
-  dataIndex: "pleaseholder"
+  dataIndex: "position_value"
 }, {
   title: "创建时间",
   align: "center",
-  dataIndex: "create_time"
+  dataIndex: "create_time",
+  render(value) {
+    return moment(value).format("YYYY年MM月DD日 HH时mm分ss秒")
+  }
 }, {
   title: "详细操作",
   align: "center",
   render() {
     return (
       <Space>
-        <Button type="default">暂停投放</Button>
-        <Button danger type="default">删除广告</Button>
+        <Button type="primary">续费</Button>
+        <Button type="default">删除</Button>
       </Space>
     )
   }

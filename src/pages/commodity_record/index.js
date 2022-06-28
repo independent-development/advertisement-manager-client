@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { PageContainer } from "@ant-design/pro-components";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
@@ -7,12 +7,20 @@ import { PageContainer } from "@ant-design/pro-components";
 // import css from "./style.scss";
 // import css from "./style.less";
 import CommodityList from "./components/commodity_list";
-
+import get_commodity_record_list from "./services/get_commodity_record_list";
 
 export default function CommodityRecord(props) {
+  const [data_source, set_data_source] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      set_data_source(await get_commodity_record_list());
+    })();
+  }, []);
+
   return (
     <PageContainer content="广告列表">
-      <CommodityList />
+      <CommodityList dataSource={data_source} />
     </PageContainer>
   )
 };
