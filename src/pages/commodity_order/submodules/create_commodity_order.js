@@ -18,6 +18,7 @@ export default function CreateCommodityOrder(props) {
 
   const handleCreateCommodity = useCallback(async () => {
     const commodity_info = await form.validateFields();
+    console.log(commodity_info);
     await create_commodity(commodity_info);
   }, [form]);
 
