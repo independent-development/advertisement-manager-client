@@ -16,7 +16,7 @@ const subject_detail = [{
 
 export default function SubjectDetail(props) {
   return (
-    <Form.Item name="subject_detail" label="投放页面" rules={subject_detail}>
+    <Form.Item name="subject_detail_page" label="投放页面" rules={subject_detail}>
       <SubjectDetailSelect />
     </Form.Item>
   )
