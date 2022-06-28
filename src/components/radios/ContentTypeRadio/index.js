@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import { Radio } from "antd";
+import React, { useCallback } from "react";
 import { VideoCameraOutlined, FileImageOutlined, Html5Outlined } from "@ant-design/icons";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
@@ -9,9 +9,15 @@ import { VideoCameraOutlined, FileImageOutlined, Html5Outlined } from "@ant-desi
 // import css from "./style.less";
 
 export default function ContentTypeRadio(props) {
-  const { value, onChange, ...otherProps } = props;
+  const { form, value, onChange, ...otherProps } = props;
+
+  const handleChange = useCallback(async (value) => {
+    await form.setFieldsValue({ "resource_link": "" });
+    await onChange(value);
+  }, [form, onChange]);
+
   return (
-    <Radio.Group value={value} onChange={onChange} {...otherProps}>
+    <Radio.Group value={value} onChange={handleChange} {...otherProps}>
       <Radio.Button value="VIDEO" style={{ width: 100, textAlign: "center" }}>
         <VideoCameraOutlined />
         <span>视频</span>

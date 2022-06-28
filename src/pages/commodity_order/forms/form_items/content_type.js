@@ -15,8 +15,14 @@ const content_type = [{
 
 export default function ContentType(props) {
   return (
-    <Form.Item name="content_type" label="广告类型" rules={content_type}>
-      <ContentTypeRadio />
+    <Form.Item noStyle shouldUpdate>
+      {(form) => {
+        return (
+          <Form.Item name="content_type" label="广告类型" rules={content_type}>
+            <ContentTypeRadio form={form} />
+          </Form.Item>
+        )
+      }}
     </Form.Item>
   )
 };
