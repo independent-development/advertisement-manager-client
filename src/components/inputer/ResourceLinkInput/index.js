@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Upload } from "antd";
 
 // import classnames from "classnames";
 // import propTypes from "prop-types";
@@ -16,17 +15,17 @@ export default function ResourceLinkInput(props) {
 
   if (content_type === "HTML5") {
     return (
-      <RemoteURLInput value={value} onChange={onChange} />
+      <RemoteURLInput value={value} onChange={onChange} {...otherProps} />
     )
   }
   if (resource_type === "OSS_URL") {
     return (
-      <UploadInput value={value} onChange={onChange} />
+      <UploadInput value={value} onChange={onChange} {...otherProps} />
     )
   }
   if (resource_type === "CUSTOM_URL") {
     return (
-      <RemoteURLInput value={value} onChange={onChange} />
+      <RemoteURLInput value={value} onChange={onChange} {...otherProps} />
     )
   }
   return null;
