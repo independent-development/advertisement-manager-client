@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { Upload } from "antd";
+import { v4 as uuidv4 } from "uuid";
+import { Upload, message } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import React, { useState, useCallback } from "react";
 
@@ -19,14 +20,17 @@ export default function VideoUploadInput(props) {
   const [file_list, set_file_list] = useState(get_filelist_detail(value));
 
   const handleAction = useCallback(async ({ file: file_object }) => {
+    const upload_message_key = uuidv4();
+    message.loading({ content: "正在上传... ...", key: upload_message_key });
     const oss_url = await upload_request(file_object);
     await set_file_list(get_filelist_detail(oss_url));
     await onChange(oss_url);
+    message.success({ content: "上传成功", key: upload_message_key });
     return oss_url;
   }, [onChange]);
 
-  const handleChange = useCallback((info) => {
-    console.log(info);
+  const handleBeforeUpload = useCallback((info) => {
+
   }, []);
 
   const handleRemove = useCallback(async () => {
@@ -41,7 +45,7 @@ export default function VideoUploadInput(props) {
       fileList={file_list}
       style={{ width: "50%" }}
       customRequest={handleAction}
-      onChange={handleChange}
+      beforeUpload={handleBeforeUpload}
       onRemove={handleRemove}
     >
       <p className="ant-upload-drag-icon">
