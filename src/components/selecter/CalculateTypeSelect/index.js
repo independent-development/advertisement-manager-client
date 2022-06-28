@@ -10,7 +10,7 @@ import { Select } from "antd";
 export default function CalculateTypeSelect(props) {
   const { value, onChange, ...otherProps } = props;
   return (
-    <Select value={value} onChange={onChange} {...otherProps}>
+    <Select value={value} onChange={onChange} style={{ width: 400 }} {...otherProps}>
       <Select.Option value="YEAR">按年计费</Select.Option>
       <Select.Option value="MONTH">按月计费</Select.Option>
       <Select.Option value="DAY">按天计费</Select.Option>
