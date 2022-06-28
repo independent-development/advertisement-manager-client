@@ -9,6 +9,8 @@ import { PageContainer } from "@ant-design/pro-components";
 // import css from "./style.less";
 
 import CommodityForm from "../forms/commodity_form";
+
+import test_hello from "../services/test_hello";
 import create_commodity from "../services/create_commodity";
 
 export default function CreateCommodityOrder(props) {
@@ -20,8 +22,8 @@ export default function CreateCommodityOrder(props) {
   }, [form]);
 
   const handleCreateAndPay = useCallback(async () => {
-    const commodity_info = await form.validateFields();
-    await create_commodity(commodity_info);
+    // const commodity_info = await form.validateFields();
+    await test_hello();
   }, [form]);
 
   return (

@@ -1,4 +1,4 @@
-import post_request from "@/utils/post_request";
+import post_request from "@/utils/request/post_request";
 
 
 export default async function create_commodity(commodity_info) {
