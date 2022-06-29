@@ -1,3 +1,5 @@
+const cookieParser = require("cookie-parser");
+
 const devRender = require("./devRender");
 
 /**
@@ -23,5 +25,6 @@ const html_template = (`
 `);
 
 module.exports = function server_callback(app) {
+  app.use(cookieParser());
   app.use(devRender(html_template));
 };

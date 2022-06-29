@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Space, Button } from "antd";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import React, { useRef, useState, useCallback } from "react";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { LoginForm, ProFormText } from "@ant-design/pro-components";
@@ -15,14 +15,16 @@ import form_config from "../configs/form_config";
 export default function UserLoginForm(props) {
   const formRef = useRef();
 
+  const navigate = useNavigate();
+
   const handleSubmit = useCallback(async () => {
     const user_login_info = await formRef.current.validateFields();
     const login_result = await post_request({
       url: "/user/login",
       data: user_login_info
     });
-    console.log(login_result);
-  }, [formRef]);
+    await navigate("/");
+  }, [formRef, navigate]);
 
   const renderCallback = useCallback(() => {
     return (

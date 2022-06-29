@@ -2,12 +2,12 @@
 import { Avatar, Space, Button, Popover } from "antd";
 import { Outlet, useNavigate } from "react-router-dom";
 import { ProLayout } from "@ant-design/pro-components";
-import React, { useState, useEffect, useCallback } from "react";
-import { FileDoneOutlined, WalletOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
+import React, { useState, useCallback } from "react";
+import { FileDoneOutlined, UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
 
-import useBalance from "@/hooks/useBalance";
+import useAuthInfo from "@/hooks/useAuthInfo";
 
 // import css from "./style.scss";
 import css from "./style.less";
@@ -16,17 +16,8 @@ import AvatarContent from "./components/AvatarContent";
 
 export default function BasicLayout(props) {
   const navigate = useNavigate();
-  const [balance, get_balance] = useBalance();
+  const auth_info = useAuthInfo();
   const [collapsed, setCollapsed] = useState(false);
-
-  const handleRedirect = useCallback(() => {
-    !tronWeb.defaultAddress.base58 ? navigate("/login") : void (0);
-  }, [navigate]);
-
-  useEffect(() => {
-    window.addEventListener("tronLink#initialized", handleRedirect);
-    return () => window.removeEventListener("tronLink#initialized", handleRedirect);
-  }, [handleRedirect]);
 
   const handleToCreateCommodityOrder = useCallback(() => {
     navigate("create_commodity_order");
@@ -38,17 +29,16 @@ export default function BasicLayout(props) {
         <Button type="primary" icon={(<FileDoneOutlined />)} onClick={handleToCreateCommodityOrder}>投放广告</Button>
         <Popover
           trigger="click"
-          title="钱包信息"
+          title="用户信息"
           placement="bottomRight"
           arrowPointAtCenter
-          onClick={get_balance}
-          content={(<AvatarContent balance={balance} />)}
+          content={(<AvatarContent {...auth_info} />)}
         >
-          <Avatar icon={(<WalletOutlined />)} />
+          <Avatar icon={(<UserOutlined />)} />
         </Popover>
       </Space>
     )
-  }, [balance]);
+  }, [auth_info]);
 
   const handleItemRender = useCallback((item, dom) => {
     return (

@@ -29,6 +29,16 @@ module.exports = (html_template) => {
       sub_node.send({ html_template, location: request_path, language: params.language });
       sub_node.on("message", resolve);
     });
-    response.send(render_content);
+    const { API_TOKEN } = request.cookies;
+    if (!API_TOKEN) {
+      if (request_path === "/zh/login") {
+        return response.send(render_content);
+      }
+      if (request_path === "/zh/registry") {
+        return response.send(render_content);
+      }
+      return response.redirect(301, "/zh/login");
+    }
+    return response.send(render_content);
   }
 }
