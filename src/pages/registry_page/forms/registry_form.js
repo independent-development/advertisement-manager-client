@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { Space, Button } from "antd";
-import { useNavigate } from "react-router-dom";
+import { Space, Button, message } from "antd";
 import React, { useRef, useCallback } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
 import { ProForm, ProFormText } from "@ant-design/pro-components";
 // import propTypes from "prop-types";
 // import classnames from "classnames";
@@ -18,16 +18,16 @@ export default function RegistryForm(props) {
   const navigate = useNavigate();
 
   const handleSubmit = useCallback(async () => {
-    const result = await formRef.current.validateFields();
-    await post_request({
-      url: "/user/registry",
-      data: result
-    });
-    await post_request({
-      url: "/user/login",
-      data: result
-    });
-    await navigate("/");
+    try {
+      const result = await formRef.current.validateFields();
+      await post_request({
+        url: "/user/registry",
+        data: result
+      });
+      message.success("注册成功!");
+    } catch (error) {
+      message.error(error.message);
+    }
   }, [formRef, navigate]);
 
   const renderCallback = useCallback(() => {
@@ -35,6 +35,9 @@ export default function RegistryForm(props) {
       <Space size={20} style={{ width: "100%" }} direction="vertical">
         <Button size="large" block type="primary" onClick={handleSubmit}>提交</Button>
         <Button size="large" block type="default">重置</Button>
+        <div style={{ textAlign: "center" }}>
+          <NavLink to="/login">已有账号,返回登录</NavLink>
+        </div>
       </Space>
     )
   }, []);

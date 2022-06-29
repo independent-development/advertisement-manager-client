@@ -1,4 +1,5 @@
 import axios from "axios";
+import { message } from "antd";
 
 const instance = axios.create({
   method: "POST",
@@ -10,5 +11,6 @@ export default async function post_request(params) {
   if (data.code === 200) {
     return data.data;
   };
+  message.error(data.message);
   throw new Error(data.message);
 };
