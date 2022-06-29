@@ -34,6 +34,9 @@ module.exports = (html_template) => {
       if (request_path === "/zh/login") {
         return response.send(render_content);
       }
+      if (request_path === "/zh/forget") {
+        return response.send(render_content);
+      }
       if (request_path === "/zh/registry") {
         return response.send(render_content);
       }

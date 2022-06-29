@@ -53,9 +53,9 @@ export default function UserLoginForm(props) {
         <NavLink to="/registry" style={{ float: "left" }}>
           注册用户
         </NavLink>
-        <a style={{ float: "right" }}>
+        <NavLink to="/forget" style={{ float: "right" }}>
           忘记密码
-        </a>
+        </NavLink>
         <a style={{ clear: "both" }} />
       </div>
     </LoginForm>
