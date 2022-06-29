@@ -6,13 +6,14 @@ import React from "react";
 // import css from "./style.scss";
 import css from "./style.less";
 
-import TronLink from "./components/tron_link";
+import UserLoginForm from "./forms/login_form";
+// import TronLink from "./components/tron_link";
 
 export default function LoginPage(props) {
   return (
     <div className={css.login_page_container}>
       <div className={css.login_page}>
-        <TronLink />
+        <UserLoginForm />
       </div>
     </div>
   )
