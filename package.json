@@ -39,6 +39,7 @@
     "react-responsive": "^9.0.0-beta.6",
     "react-router-dom": "^6.2.2",
     "ssr-window": "4.0.2",
+    "url": "^0.11.0",
     "validator": "^13.7.0"
   },
   "peerDependencies": {
