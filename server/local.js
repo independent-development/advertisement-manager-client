@@ -3,7 +3,7 @@ const cookieParser = require("cookie-parser");
 
 const auth = require("./middlewares/auth");
 const locales = require("./middlewares/locales");
-const render_content = require("./middlewares/dev_render");
+const render_content = require("./middlewares/local_render");
 
 /**
  * @description 开发的时候服务端渲染的逻辑可以在这里调试
