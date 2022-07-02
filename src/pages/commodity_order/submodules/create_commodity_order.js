@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import { Form, Button } from "antd";
 import React, { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { PageContainer } from "@ant-design/pro-components";
-// import classnames from "classnames";
 // import propTypes from "prop-types";
+// import classnames from "classnames";
 
 // import css from "./style.scss";
 // import css from "./style.less";
+
 
 import CommodityForm from "../forms/commodity_form";
 
@@ -16,11 +18,13 @@ import create_commodity from "../services/create_commodity";
 export default function CreateCommodityOrder(props) {
   const [form] = Form.useForm();
 
+  const navigate = useNavigate();
+
   const handleCreateCommodity = useCallback(async () => {
     const commodity_info = await form.validateFields();
-    console.log(commodity_info);
     await create_commodity(commodity_info);
-  }, [form]);
+    await navigate("/commodity_record");
+  }, [form, navigate]);
 
   const handleCreateAndPay = useCallback(async () => {
     // const commodity_info = await form.validateFields();

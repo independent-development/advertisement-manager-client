@@ -58,7 +58,7 @@ const columns = [{
 export default function CommodityList(props) {
   const { dataSource } = props;
   return (
-    <Table rowKey="id" columns={columns} dataSource={dataSource} />
+    <Table rowKey="commodity_id" columns={columns} dataSource={dataSource} />
   )
 };
 
