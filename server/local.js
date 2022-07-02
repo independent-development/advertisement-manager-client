@@ -1,6 +1,9 @@
+const path = require("path");
 const cookieParser = require("cookie-parser");
 
-const devRender = require("./devRender");
+const auth = require("./middlewares/auth");
+const locales = require("./middlewares/locales");
+const render_content = require("./middlewares/dev_render");
 
 /**
  * @description 开发的时候服务端渲染的逻辑可以在这里调试
@@ -26,5 +29,21 @@ const html_template = (`
 
 module.exports = function server_callback(app) {
   app.use(cookieParser());
-  app.use(devRender(html_template));
+  app.use([auth, locales, render_content(html_template)], (request, response, next) => {
+    const { path: request_path } = request;
+    const extname = path.extname(request_path);
+    if (extname) {
+      return next();
+    }
+    if (request_path === "/__webpack_hmr") {
+      return next();
+    }
+    if (!request.auth) {
+      return response.redirect(301, "/zh/login");
+    }
+    if (!request.language) {
+      return response.redirect(301, "/zh");
+    }
+    response.send(request.render_content);
+  });
 };

@@ -7,7 +7,7 @@ const { promisify } = require("util");
 
 const auth = require("./middlewares/auth");
 const locales = require("./middlewares/locales");
-const render_content = require("./middlewares/prod_render");
+const render_content = require("./middlewares/test_render");
 
 const app = express();
 
