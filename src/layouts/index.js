@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Avatar, Space, Button, Popover } from "antd";
-import { Outlet, useNavigate } from "react-router-dom";
 import { ProLayout } from "@ant-design/pro-components";
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { FileDoneOutlined, UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
@@ -18,6 +18,14 @@ export default function BasicLayout(props) {
   const navigate = useNavigate();
   const auth_info = useAuthInfo();
   const [collapsed, setCollapsed] = useState(false);
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (pathname === "/") {
+      navigate("/commodity_record")
+    }
+  }, [pathname, navigate]);
 
   const handleToCreateCommodityOrder = useCallback(() => {
     navigate("create_commodity_order");
