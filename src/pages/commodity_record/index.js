@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { PageContainer } from "@ant-design/pro-components";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
@@ -12,15 +12,15 @@ import get_commodity_record_list from "./services/get_commodity_record_list";
 export default function CommodityRecord(props) {
   const [data_source, set_data_source] = useState([]);
 
-  useEffect(() => {
-    (async () => {
-      set_data_source(await get_commodity_record_list());
-    })();
+  const handleGetRecordList = useCallback(async () => {
+    set_data_source(await get_commodity_record_list());
   }, []);
+
+  useEffect(() => { handleGetRecordList() }, [handleGetRecordList]);
 
   return (
     <PageContainer content="广告列表">
-      <CommodityList dataSource={data_source} />
+      <CommodityList dataSource={data_source} onDelete={handleGetRecordList} />
     </PageContainer>
   )
 };
