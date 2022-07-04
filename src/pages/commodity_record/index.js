@@ -13,7 +13,9 @@ export default function CommodityRecord(props) {
   const [data_source, set_data_source] = useState([]);
 
   const handleGetRecordList = useCallback(async () => {
-    set_data_source(await get_commodity_record_list());
+    const record_list = await get_commodity_record_list();
+    console.log(record_list);
+    set_data_source(record_list);
   }, []);
 
   useEffect(() => { handleGetRecordList() }, [handleGetRecordList]);
