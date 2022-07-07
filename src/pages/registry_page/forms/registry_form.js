@@ -25,6 +25,7 @@ export default function RegistryForm(props) {
         data: result
       });
       message.success("注册成功!");
+      await navigate("/login");
     } catch (error) {
       message.error(error.message);
     }
