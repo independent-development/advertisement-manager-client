@@ -12,6 +12,9 @@ module.exports = {
   "/api/v1/commodity": {
     target: "http://localhost:3300"
   },
+  "/api/v1/transaction": {
+    target: "http://localhost:3300"
+  },
   // "/api": {
   //   target: "http://localhost:3000"
   // }

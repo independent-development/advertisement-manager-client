@@ -35,17 +35,19 @@ export default function OrderList(props) {
     align: "center",
     dataIndex: "create_time"
   }, {
-    title: "订单状态",
+    title: "交易状态",
     align: "center",
     dataIndex: "status"
   }, {
     title: "详细操作",
     align: "center",
-    render({ order_id }) {
-      return (
+    render({ order_id, fk_transaction_hash }) {
+      return fk_transaction_hash ? (
+        <Button type="primary">交易详情</Button>
+      ) : (
         <Space>
-          <Button type="primary">取消订单</Button>
-          <Button danger type="default" onClick={() => handleDelete(order_id)}>删除订单</Button>
+          <Button type="primary">完成交易</Button>
+          <Button danger type="primary">取消订单</Button>
         </Space>
       )
     }

@@ -5,23 +5,17 @@ import { Space, Table, Button, Tooltip } from "antd";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
 
-import delete_commodity from "../../services/delete_commodity";
 
 // import css from "./style.scss";
 // import css from "./style.less";
 
-export default function CommodityList(props) {
+export default function TransactionList(props) {
   const { dataSource, onDelete } = props;
 
-  const handleDelete = useCallback(async (commodity_id) => {
-    await delete_commodity(commodity_id);
-    await onDelete();
-  }, [onDelete]);
-
   const columns = useMemo(() => ([{
-    title: "编号",
+    title: "交易编号",
     align: "center",
-    dataIndex: "commodity_id",
+    dataIndex: "transaction_id",
     render(value) {
       return (
         <Tooltip title={value} style={{ whiteSpace: "nowrap" }}>
@@ -32,21 +26,15 @@ export default function CommodityList(props) {
   }, {
     title: "交易状态",
     align: "center",
-    render({ relation_transaction }) {
-      return relation_transaction.transaction_status;
-    }
+    dataIndex: "transaction_status"
   }, {
-    title: "投放状态",
+    title: "交易哈希",
     align: "center",
-    dataIndex: "status"
+    dataIndex: "transaction_hash"
   }, {
-    title: "投放页面",
+    title: "交易金额",
     align: "center",
-    dataIndex: "subject_detail_page"
-  }, {
-    title: "投放位置",
-    align: "center",
-    dataIndex: "position_value"
+    dataIndex: "payment_amount"
   }, {
     title: "创建时间",
     align: "center",
@@ -57,26 +45,41 @@ export default function CommodityList(props) {
   }, {
     title: "详细操作",
     align: "center",
-    render({ commodity_id }) {
-      return (
-        <Space>
-          <Button type="primary">续费</Button>
-        </Space>
-      )
+    dataIndex: "transaction_status",
+    render(value) {
+      if (value === "CREATED") {
+        return (
+          <Space>
+            <Button type="primary">立即支付</Button>
+            <Button danger type="primary">取消支付</Button>
+          </Space>
+        )
+      }
+      if (value === "FAILD") {
+        return (
+          <Button type="primary">重新支付</Button>
+        )
+      }
+      if (value === "COMPLATE") {
+        return (
+          <Button type="primary">查看详情</Button>
+        )
+      }
+      return null;
     }
-  }]), [handleDelete]);
+  }]), []);
 
   return (
-    <Table rowKey="commodity_id" columns={columns} dataSource={dataSource} />
+    <Table rowKey="transaction_id" columns={columns} dataSource={dataSource} />
   )
 };
 
 
-CommodityList.propTypes = {
+TransactionList.propTypes = {
 
 
 };
-CommodityList.defaultProps = {
+TransactionList.defaultProps = {
   dataSource: [],
   onDelete() { }
 };
