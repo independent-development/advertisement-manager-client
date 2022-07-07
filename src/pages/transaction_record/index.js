@@ -10,7 +10,7 @@ import { PageContainer } from "@ant-design/pro-components";
 import TransactionList from "./components/transaction_list";
 import get_transaction_list from "./services/get_transaction_list";
 
-export default function TransactionRecorsd(props) {
+export default function TransactionRecord(props) {
   const [data_source, set_data_source] = useState([]);
 
   useEffect(() => {
@@ -28,11 +28,11 @@ export default function TransactionRecorsd(props) {
 };
 
 
-TransactionRecorsd.propTypes = {
+TransactionRecord.propTypes = {
 
 
 };
-TransactionRecorsd.defaultProps = {
+TransactionRecord.defaultProps = {
 
 
 };

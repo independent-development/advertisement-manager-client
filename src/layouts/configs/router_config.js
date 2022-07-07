@@ -8,8 +8,8 @@ export default {
     name: "广告列表",
     icon: (<LaptopOutlined />)
   }, {
-    path: "/transaction_recorsd",
-    name: "交易列表",
+    path: "/transaction_record",
+    name: "交易记录",
     icon: (<PayCircleOutlined />)
   }, {
     path: "/user_center",
