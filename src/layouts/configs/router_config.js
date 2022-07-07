@@ -4,10 +4,6 @@ import { UserOutlined, LaptopOutlined, OrderedListOutlined, PayCircleOutlined } 
 export default {
   path: "/",
   routes: [{
-    path: "/order_manage",
-    name: "订单列表",
-    icon: (<OrderedListOutlined />),
-  }, {
     path: "/commodity_record",
     name: "广告列表",
     icon: (<LaptopOutlined />)

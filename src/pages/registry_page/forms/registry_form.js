@@ -2,7 +2,7 @@
 import { Space, Button, message } from "antd";
 import React, { useRef, useCallback } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
-import { ProForm, ProFormText } from "@ant-design/pro-components";
+import { ProForm, ProFormText, ProFormSelect, ProFormDatePicker } from "@ant-design/pro-components";
 // import propTypes from "prop-types";
 // import classnames from "classnames";
 
@@ -59,16 +59,26 @@ export default function RegistryForm(props) {
         allowClear
       />
       <ProFormText
-        label="手机号"
-        name="mobile_phone"
-        placeholder="请输入手机号"
-        allowClear
-      />
-      <ProFormText
         label="邮箱"
         name="e_mail"
         placeholder="请输入邮箱"
         rules={[{ required: true, message: "请输入邮箱" }]}
+        allowClear
+      />
+      <ProFormSelect
+        label="性别"
+        name="sex"
+        valueEnum={{ man: "男性", woman: "女性" }}
+      />
+      <ProFormDatePicker
+        name="birth"
+        label="出生日期"
+        fieldProps={{ style: { width: "100%" } }}
+      />
+      <ProFormText
+        label="手机号"
+        name="mobile_phone"
+        placeholder="请输入手机号"
         allowClear
       />
     </ProForm>

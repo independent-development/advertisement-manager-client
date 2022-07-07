@@ -57,12 +57,32 @@ export default function CommodityList(props) {
   }, {
     title: "详细操作",
     align: "center",
-    render({ commodity_id }) {
-      return (
-        <Space>
-          <Button type="primary">续费</Button>
-        </Space>
-      )
+    render({ relation_transaction }) {
+      if (relation_transaction.transaction_status === "CREATED") {
+        return (
+          <Space>
+            <Button type="default">编辑</Button>
+            <Button type="primary">支付</Button>
+            <Button danger type="primary">取消</Button>
+          </Space>
+        )
+      }
+      if (relation_transaction.transaction_status === "COMPLATE") {
+        return (
+          <Space>
+            <Button type="default">查看</Button>
+            <Button type="primary">再次投放</Button>
+          </Space>
+        )
+      }
+      if (relation_transaction.transaction_status === "FAILD") {
+        return (
+          <Space>
+            <Button type="primary">重新投放</Button>
+          </Space>
+        )
+      }
+      return false;
     }
   }]), [handleDelete]);
 
