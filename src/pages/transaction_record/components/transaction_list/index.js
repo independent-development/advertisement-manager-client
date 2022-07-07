@@ -24,6 +24,13 @@ export default function TransactionList(props) {
       );
     }
   }, {
+    title: "创建时间",
+    align: "center",
+    dataIndex: "create_time",
+    render(value) {
+      return moment(value).format("YYYY年MM月DD日 HH时mm分ss秒")
+    }
+  }, {
     title: "交易状态",
     align: "center",
     dataIndex: "transaction_status"
@@ -35,38 +42,6 @@ export default function TransactionList(props) {
     title: "交易金额",
     align: "center",
     dataIndex: "payment_amount"
-  }, {
-    title: "创建时间",
-    align: "center",
-    dataIndex: "create_time",
-    render(value) {
-      return moment(value).format("YYYY年MM月DD日 HH时mm分ss秒")
-    }
-  }, {
-    title: "详细操作",
-    align: "center",
-    dataIndex: "transaction_status",
-    render(value) {
-      if (value === "CREATED") {
-        return (
-          <Space>
-            <Button type="primary">立即支付</Button>
-            <Button danger type="primary">取消支付</Button>
-          </Space>
-        )
-      }
-      if (value === "FAILD") {
-        return (
-          <Button type="primary">重新支付</Button>
-        )
-      }
-      if (value === "COMPLATE") {
-        return (
-          <Button type="primary">查看详情</Button>
-        )
-      }
-      return null;
-    }
   }]), []);
 
   return (

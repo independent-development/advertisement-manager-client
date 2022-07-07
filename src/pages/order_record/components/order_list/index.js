@@ -35,9 +35,9 @@ export default function OrderList(props) {
       return relation_transaction.transaction_status;
     }
   }, {
-    title: "投放状态",
+    title: "订单状态",
     align: "center",
-    dataIndex: "status"
+    dataIndex: "order_status"
   }, {
     title: "创建时间",
     align: "center",

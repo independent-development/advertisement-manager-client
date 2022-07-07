@@ -21,7 +21,7 @@ export default function TransactionRecord(props) {
   }, []);
 
   return (
-    <PageContainer content="交易列表">
+    <PageContainer content="交易记录">
       <TransactionList dataSource={data_source} />
     </PageContainer>
   )
