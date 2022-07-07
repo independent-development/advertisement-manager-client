@@ -23,12 +23,12 @@ export default function BasicLayout(props) {
 
   useEffect(() => {
     if (pathname === "/") {
-      navigate("/commodity_record")
+      navigate("position_record")
     }
   }, [pathname, navigate]);
 
   const handleToCreateCommodityOrder = useCallback(() => {
-    navigate("create_commodity_order");
+    navigate("create_position");
   }, [navigate]);
 
   const handleRightContentRender = useCallback(() => {

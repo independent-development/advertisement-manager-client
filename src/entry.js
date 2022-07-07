@@ -8,10 +8,12 @@ import ForgetPage from "@/pages/forget_page";
 import RegistryPage from "@/pages/registry_page";
 
 import UserCenter from "@/pages/user_center";
-import OrderManage from "@/pages/order_manage";
-import CommodityRecord from "@/pages/commodity_record";
+import OrderRecord from "@/pages/order_record";
+import PositionRecord from "@/pages/position_record";
 import TransactionRecord from "@/pages/transaction_record";
-import CreateCommodityOrder from "@/pages/commodity_order/submodules/create_commodity_order";
+
+import EditPosition from "@/pages/position_manage/submodules/edit_position";
+import CreatePosition from "@/pages/position_manage/submodules/create_position";
 
 
 export default () => {
@@ -21,11 +23,12 @@ export default () => {
       <Route path="/forget" element={(<ForgetPage />)} />
       <Route path="/registry" element={(<RegistryPage />)} />
       <Route path="/" element={(<BasicLayout />)}>
-        <Route path="/user_center" element={(<UserCenter />)} />
-        <Route path="/order_manage" element={(<OrderManage />)} />
-        <Route path="/commodity_record" element={(<CommodityRecord />)} />
+        <Route path="/edit_position" element={(<EditPosition />)} />
+        <Route path="/create_position" element={(<CreatePosition />)} />
+        <Route path="/order_record" element={(<OrderRecord />)} />
+        <Route path="/position_record" element={(<PositionRecord />)} />
         <Route path="/transaction_record" element={(<TransactionRecord />)} />
-        <Route path="/create_commodity_order" element={(<CreateCommodityOrder />)} />
+        <Route path="/user_center" element={(<UserCenter />)} />
       </Route>
     </Routes>
   )

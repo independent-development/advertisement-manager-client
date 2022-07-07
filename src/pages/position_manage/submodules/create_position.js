@@ -9,26 +9,22 @@ import { PageContainer } from "@ant-design/pro-components";
 // import css from "./style.scss";
 // import css from "./style.less";
 
+import CreatePositionForm from "../forms/create_position_form";
+import create_position from "../services/create_position";
 
-import CommodityForm from "../forms/commodity_form";
-
-import test_hello from "../services/test_hello";
-import create_commodity from "../services/create_commodity";
-
-export default function CreateCommodityOrder(props) {
+export default function CreatePosition(props) {
   const [form] = Form.useForm();
 
   const navigate = useNavigate();
 
   const handleCreateCommodity = useCallback(async () => {
-    const commodity_info = await form.validateFields();
-    await create_commodity(commodity_info);
-    await navigate("/commodity_record");
+    const position_info = await form.validateFields();
+    await create_position(position_info);
+    await navigate("/order_record");
   }, [form, navigate]);
 
   const handleCreateAndPay = useCallback(async () => {
     // const commodity_info = await form.validateFields();
-    await test_hello();
   }, [form]);
 
   return (
@@ -41,17 +37,17 @@ export default function CreateCommodityOrder(props) {
         (<Button key="4" type="primary" onClick={handleCreateAndPay}>立即支付</Button>)
       ]}
     >
-      <CommodityForm form={form} />
+      <CreatePositionForm form={form} />
     </PageContainer >
   )
 };
 
 
-CreateCommodityOrder.propTypes = {
+CreatePosition.propTypes = {
 
 
 };
-CreateCommodityOrder.defaultProps = {
+CreatePosition.defaultProps = {
 
 
 };

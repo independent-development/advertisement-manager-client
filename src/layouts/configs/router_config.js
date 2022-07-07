@@ -4,16 +4,20 @@ import { UserOutlined, LaptopOutlined, OrderedListOutlined, PayCircleOutlined } 
 export default {
   path: "/",
   routes: [{
-    path: "/commodity_record",
-    name: "广告列表",
+    name: "广告位",
+    path: "/position_record",
+    icon: (<OrderedListOutlined />)
+  }, {
+    name: "订单列表",
+    path: "/order_record",
     icon: (<LaptopOutlined />)
   }, {
-    path: "/transaction_record",
     name: "交易记录",
+    path: "/transaction_record",
     icon: (<PayCircleOutlined />)
   }, {
-    path: "/user_center",
     name: "用户中心",
+    path: "/user_center",
     icon: (<UserOutlined />)
   }]
 }

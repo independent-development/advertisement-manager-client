@@ -6,10 +6,10 @@ module.exports = {
   "/api/v1/system": {
     target: "http://localhost:3300"
   },
-  "/api/v1/orders": {
+  "/api/v1/order": {
     target: "http://localhost:3300"
   },
-  "/api/v1/commodity": {
+  "/api/v1/position": {
     target: "http://localhost:3300"
   },
   "/api/v1/transaction": {

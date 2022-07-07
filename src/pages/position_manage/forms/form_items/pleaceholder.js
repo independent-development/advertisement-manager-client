@@ -4,7 +4,7 @@ import { Form } from "antd";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
 
-import PleaceholderSelect from "@/components/selecter/PleaceholderSelect";
+import PleaceholderRadio from "@/components/radios/PleaceholderRadio";
 
 // import css from "./style.scss";
 // import css from "./style.less";
@@ -16,8 +16,8 @@ const pleaceholder = [{
 
 export default function Placeholder(props) {
   return (
-    <Form.Item name="pleaceholder" label="投放位置" rules={pleaceholder}>
-      <PleaceholderSelect />
+    <Form.Item name="position_value" label="投放位置" rules={pleaceholder}>
+      <PleaceholderRadio />
     </Form.Item>
   )
 };

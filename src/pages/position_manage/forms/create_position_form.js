@@ -21,15 +21,15 @@ import CommodityTitle from "./form_items/commodity_title";
 import CommodityDiscription from "./form_items/commodity_discription";
 import CommodityLinkURL from "./form_items/commodity_link_url";
 
-export default function CommodityForm(props) {
-  const { form, ...otherProps } = props;
+export default function CreateCommodityForm(props) {
+  const { form, initialValues, ...otherProps } = props;
 
   const handleValuesChange = useCallback((changeValues, allValues) => {
-    console.log("allValues", allValues);
+    // console.log("allValues", allValues);
   }, []);
 
   return (
-    <Form {...form_config} form={form} onValuesChange={handleValuesChange}>
+    <Form {...form_config} initialValues={initialValues} form={form} onValuesChange={handleValuesChange}>
       <ProCard ghost direction="column" gutter={[16, 16]}>
         <ProCard title="基础费用配置">
           <CalculateType />
@@ -51,11 +51,18 @@ export default function CommodityForm(props) {
 };
 
 
-CommodityForm.propTypes = {
-
+CreateCommodityForm.propTypes = {
 
 };
-CommodityForm.defaultProps = {
 
-
+CreateCommodityForm.defaultProps = {
+  initialValues: {
+    subject_detail_page: ["homepage"],
+    calculate_type: "DAY",
+    calculate_value: 1,
+    pleaceholder: "PAGE_TOP",
+    content_type: "IMAGE",
+    resource_type: "OSS_URL",
+    resource_link: "https://ewr1.vultrobjects.com/test-bucket-002/4ba4e20401b8bdc4845ea6ecfa02e8ba.jpeg"
+  }
 };
