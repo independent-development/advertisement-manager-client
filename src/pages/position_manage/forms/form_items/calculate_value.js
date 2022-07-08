@@ -11,7 +11,7 @@ const addonAfter = {
   "YEAR": "年",
   "MONTH": "月",
   "DAY": "天",
-  "AMOUNT": "次"
+  "HOUR": "小时"
 };
 
 const calculate_value = [{

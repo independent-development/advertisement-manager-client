@@ -14,7 +14,7 @@ export default function CalculateTypeSelect(props) {
       <Select.Option value="YEAR">按年计费</Select.Option>
       <Select.Option value="MONTH">按月计费</Select.Option>
       <Select.Option value="DAY">按天计费</Select.Option>
-      <Select.Option value="AMOUNT">按次计费</Select.Option>
+      <Select.Option value="HOUR">按小时计费</Select.Option>
     </Select>
   )
 };
