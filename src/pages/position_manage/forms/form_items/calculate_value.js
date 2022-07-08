@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Form, InputNumber } from "antd";
-// import classnames from "classnames";
 // import propTypes from "prop-types";
+// import classnames from "classnames";
 
 // import css from "./style.scss";
 // import css from "./style.less";
@@ -26,7 +26,12 @@ export default function CalculateValue(props) {
         const calculate_type = getFieldValue("calculate_type");
         return (
           <Form.Item name="calculate_value" label="展示周期" rules={calculate_value}>
-            <InputNumber min={1} style={{ width: 400 }} addonAfter={calculate_type ? addonAfter[calculate_type] : ""} />
+            <InputNumber
+              min={1}
+              style={{ width: 400 }}
+              formatter={value => parseInt(value)}
+              addonAfter={calculate_type ? addonAfter[calculate_type] : ""}
+            />
           </Form.Item>
         )
       }}

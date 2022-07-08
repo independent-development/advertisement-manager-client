@@ -17,7 +17,8 @@ export default function CreatePosition(props) {
 
   const navigate = useNavigate();
 
-  const handleCreateCommodity = useCallback(async () => {
+  /** 保存订单稍后支付 **/
+  const handleSaveOrder = useCallback(async () => {
     const position_info = await form.validateFields();
     await create_position(position_info);
     await navigate("/order_record");
@@ -33,7 +34,8 @@ export default function CreatePosition(props) {
       footer={[
         (<span key="1">10 (USDT)</span>),
         (<Button key="2" type="primary">预览效果</Button>),
-        (<Button key="3" type="default" onClick={handleCreateCommodity}>保存订单(稍后支付)</Button>),
+        (<Button key="3" type="default" onClick={handleSaveOrder}>保存订单(稍后支付)</Button>),
+        (<Button key="4" type="primary">立即支付</Button>),
       ]}
     >
       <CreatePositionForm form={form} />
