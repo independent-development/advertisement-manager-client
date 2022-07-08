@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Form } from "antd";
 import { getProperty } from "dot-prop";
-import React, { useCallback } from "react";
+import React, { useMemo, useCallback } from "react";
 import { ProCard } from "@ant-design/pro-components";
 // import propTypes from "prop-types";
 // import classnames from "classnames";
@@ -25,12 +25,21 @@ import CommodityLinkURL from "./form_items/commodity_link_url";
 export default function CreateCommodityForm(props) {
   const { form, initialValues, ...otherProps } = props;
 
+  const computed_initial_values = useMemo(() => {
+    const clone_initial_values = { ...initialValues };
+    clone_initial_values.calculate_type = "DAY";
+    clone_initial_values.calculate_value = 1;
+    clone_initial_values.content_type = "IMAGE";
+    clone_initial_values.resource_type = "OSS_URL";
+    return clone_initial_values;
+  }, [initialValues]);
+
   const handleValuesChange = useCallback((changeValues, allValues) => {
     // console.log("allValues", allValues);
   }, []);
 
   return (
-    <Form {...form_config} initialValues={initialValues} form={form} onValuesChange={handleValuesChange}>
+    <Form {...form_config} initialValues={computed_initial_values} form={form} onValuesChange={handleValuesChange}>
       <ProCard ghost direction="column" gutter={[16, 16]}>
         <ProCard title="基础费用配置">
           <CalculateType />
