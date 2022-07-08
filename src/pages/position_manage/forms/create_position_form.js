@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Form } from "antd";
+import { getProperty } from "dot-prop";
 import React, { useCallback } from "react";
 import { ProCard } from "@ant-design/pro-components";
 // import propTypes from "prop-types";
@@ -56,13 +57,5 @@ CreateCommodityForm.propTypes = {
 };
 
 CreateCommodityForm.defaultProps = {
-  initialValues: {
-    subject_detail_page: ["homepage"],
-    calculate_type: "DAY",
-    calculate_value: 1,
-    position_value: "PAGE_TOP",
-    content_type: "IMAGE",
-    resource_type: "OSS_URL",
-    resource_link: "https://ewr1.vultrobjects.com/test-bucket-002/4ba4e20401b8bdc4845ea6ecfa02e8ba.jpeg"
-  }
+  initialValues: getProperty(window, "dev_inject.position_initial_values", {})
 };

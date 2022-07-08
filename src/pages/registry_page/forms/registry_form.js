@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { getProperty } from "dot-prop";
 import { Space, Button, message } from "antd";
 import React, { useRef, useCallback } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
@@ -12,6 +13,8 @@ import post_request from "@/utils/request/post_request";
 import form_config from "../configs/form_config";
 
 export default function RegistryForm(props) {
+
+  const { initialValues } = props;
 
   const formRef = useRef();
 
@@ -44,7 +47,7 @@ export default function RegistryForm(props) {
   }, []);
 
   return (
-    <ProForm {...form_config} formRef={formRef} submitter={{ render: renderCallback }}>
+    <ProForm {...form_config} initialValues={initialValues} formRef={formRef} submitter={{ render: renderCallback }}>
       <ProFormText
         label="用户名"
         name="username"
@@ -92,6 +95,5 @@ RegistryForm.propTypes = {
 
 };
 RegistryForm.defaultProps = {
-
-
+  initialValues: getProperty(window, "dev_inject.registry_initial_values")
 };

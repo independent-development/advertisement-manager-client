@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Space, Button } from "antd";
+import { getProperty } from "dot-prop";
 import { NavLink, useNavigate } from "react-router-dom";
 import React, { useRef, useState, useCallback } from "react";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
@@ -13,6 +14,9 @@ import post_request from "@/utils/request/post_request";
 import form_config from "../configs/form_config";
 
 export default function UserLoginForm(props) {
+
+  const { initialValues, ...otherProps } = props;
+
   const formRef = useRef();
 
   const navigate = useNavigate();
@@ -36,7 +40,7 @@ export default function UserLoginForm(props) {
   }, []);
 
   return (
-    <LoginForm {...form_config} formRef={formRef} submitter={{ render: renderCallback }}>
+    <LoginForm {...form_config} initialValues={initialValues} formRef={formRef} submitter={{ render: renderCallback }}>
       <ProFormText
         name="username"
         placeholder="请输入用户名"
@@ -68,6 +72,5 @@ UserLoginForm.propTypes = {
 
 };
 UserLoginForm.defaultProps = {
-
-
+  initialValues: getProperty(window, "dev_inject.login_initial_values")
 };

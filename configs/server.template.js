@@ -9,9 +9,12 @@ import cheerio from "cheerio";
 // import MainBlock from "@/entry";
 
 
-export function server_render({ html_template, language, location }) {
+export function server_render({ html_template, language, location, dev_inject }) {
   const $ = cheerio.load(html_template);
   $("head").append(`<script>window.language="${language}"</script>`);
+  if (dev_inject) {
+    $("head").append(`<script>window.dev_inject=${JSON.stringify(dev_inject)}</script>`);
+  };
   // $("#root").append(ReactDOM.renderToString(
   //   <I18nextProvider i18n={init18n(language)}>
   //     <StaticRouter basename={language} location={location}>
@@ -30,8 +33,8 @@ export function server_render({ html_template, language, location }) {
  * **/
 if (process.env.NODE_ENV === "development") {
   process.on("message", (message) => {
-    const { html_template, language, location } = message;
-    process.send(server_render({ html_template, language, location }));
+    const { html_template, language, location, dev_inject } = message;
+    process.send(server_render({ html_template, language, location, dev_inject }));
     process.exit(0);
   });
 };
