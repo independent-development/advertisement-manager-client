@@ -56,7 +56,7 @@ export default function SubjectDetailSelect(props) {
         <Select.Option value="content3">内容3</Select.Option>
         <Select.Option value="content4">内容4</Select.Option>
       </Select>
-      <Button style={{ width: 100 }} type="primary" onClick={handlePreview}>点击预览</Button>
+      <Button style={{ width: 100 }} type="primary" onClick={handlePreview}>查看页面</Button>
     </Input.Group>
   )
 };

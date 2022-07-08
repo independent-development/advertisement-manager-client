@@ -26,7 +26,8 @@ export default function EditPosition(props) {
     const position_id = search_params.get("position_id");
     (async () => {
       const detail = await get_position_detail(position_id);
-      set_initial_values(detail);
+      await set_initial_values(false);
+      await set_initial_values(detail);
     })();
   }, [search_params]);
 
@@ -44,12 +45,11 @@ export default function EditPosition(props) {
   return (
     <PageContainer
       content="编辑广告"
-      footer={[
+      footer={initial_values ? [
         (<span key="1">10 (USDT)</span>),
-        (<Button key="2" type="default">重新填写</Button>),
-        (<Button key="3" type="default" onClick={handleCreateCommodity}>创建订单(稍后支付)</Button>),
-        (<Button key="4" type="primary" onClick={handleCreateAndPay}>立即支付</Button>)
-      ]}
+        (<Button key="2" type="primary">预览效果</Button>),
+        (<Button key="3" type="default" onClick={handleCreateCommodity}>保存订单(稍后支付)</Button>),
+      ] : null}
     >
       <EditPositionForm form={form} initialValues={initial_values} />
     </PageContainer >

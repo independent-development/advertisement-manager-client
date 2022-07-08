@@ -21,7 +21,7 @@ export default function PositionRecord(props) {
   useEffect(() => { handleGetRecordList() }, [handleGetRecordList]);
 
   return (
-    <PageContainer content="订单列表">
+    <PageContainer content="广告位">
       <OrderList dataSource={data_source} />
     </PageContainer>
   )

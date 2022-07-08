@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Form } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 import React, { useMemo, useCallback } from "react";
 import { ProCard } from "@ant-design/pro-components";
 // import propTypes from "prop-types";
@@ -38,7 +39,9 @@ export default function EditPositionForm(props) {
   }, []);
 
   if (!formatInitialValues) {
-    return false;
+    return (
+      <LoadingOutlined style={{ position: "fixed", top: "50%", left: "50%", fontSize: 48 }} />
+    );
   };
 
   return (

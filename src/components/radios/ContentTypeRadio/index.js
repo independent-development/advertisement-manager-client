@@ -18,13 +18,13 @@ export default function ContentTypeRadio(props) {
 
   return (
     <Radio.Group value={value} onChange={handleChange} {...otherProps}>
-      <Radio.Button value="VIDEO" style={{ width: 100, textAlign: "center" }}>
-        <VideoCameraOutlined />
-        <span>视频</span>
-      </Radio.Button>
       <Radio.Button value="IMAGE" style={{ width: 100, textAlign: "center" }}>
         <FileImageOutlined />
         <span>图片</span>
+      </Radio.Button>
+      <Radio.Button value="VIDEO" style={{ width: 100, textAlign: "center" }}>
+        <VideoCameraOutlined />
+        <span>视频</span>
       </Radio.Button>
       <Radio.Button value="HTML5" style={{ width: 100, textAlign: "center" }}>
         <Html5Outlined />
