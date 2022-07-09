@@ -16,6 +16,7 @@ const app = express();
   const html_template = await promisify(fs.readFile)(html_template_path, "utf-8");
   app.use(cookieParser());
   app.use((request, response, next) => {
+    console.log("url===>", request.url, "path==>", request.path, "pathname==>", request.pathname);
     if (request.url === "/") {
       return response.redirect(301, "/ad-poster/zh/");
     }
