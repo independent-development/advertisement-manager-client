@@ -21,7 +21,7 @@ const app = express();
     }
     next();
   });
-  app.use("/ad-poster/", [prefix, auth, render_content(html_template)], (request, response, next) => {
+  app.use([prefix, auth, render_content(html_template)], (request, response, next) => {
     const { path: request_path } = request;
     const extname = path.extname(request_path);
     if (extname) {

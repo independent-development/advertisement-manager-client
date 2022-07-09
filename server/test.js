@@ -16,13 +16,12 @@ const app = express();
   const html_template = await promisify(fs.readFile)(html_template_path, "utf-8");
   app.use(cookieParser());
   app.use((request, response, next) => {
-    console.log("url===>", request.url, "path==>", request.path, "pathname==>", request.pathname);
     if (request.url === "/") {
       return response.redirect(301, "/ad-poster/zh/");
     }
     next();
   });
-  app.use("/ad-poster/", [prefix, auth, render_content(html_template)], (request, response, next) => {
+  app.use([prefix, auth, render_content(html_template)], (request, response, next) => {
     const { path: request_path } = request;
     const extname = path.extname(request_path);
     if (extname) {
