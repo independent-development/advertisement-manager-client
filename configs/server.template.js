@@ -1,11 +1,11 @@
-import React from "react";
+// import React from "react";
 import cheerio from "cheerio";
-import ReactDOM from "react-dom/server";
+// import ReactDOM from "react-dom/server";
 
-import { I18nextProvider } from "react-i18next";
-import { StaticRouter } from "react-router-dom/server";
+// import { I18nextProvider } from "react-i18next";
+// import { StaticRouter } from "react-router-dom/server";
 
-import init18n from "@/init18n";
+// import init18n from "@/init18n";
 // import MainBlock from "@/entry";
 
 
@@ -17,13 +17,13 @@ export function server_render({ html_template, language, location, dev_inject })
     $("head").append(`<script>window.dev_inject=${JSON.stringify(dev_inject)}</script>`);
   };
   /** 服务端渲染结构 **/
-  $("#root").append(ReactDOM.renderToString(
-    <I18nextProvider i18n={init18n(language)}>
-      <StaticRouter basename={`/ad-poster/${language}`} location={location}>
-        <div></div>
-      </StaticRouter>
-    </I18nextProvider>
-  ));
+  // $("#root").append(ReactDOM.renderToString(
+  //   <I18nextProvider i18n={init18n(language)}>
+  //     <StaticRouter basename={`/ad-poster/${language}`} location={location}>
+  //       <div></div>
+  //     </StaticRouter>
+  //   </I18nextProvider>
+  // ));
   return $.html();
 }
 

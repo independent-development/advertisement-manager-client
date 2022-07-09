@@ -27,14 +27,14 @@ export default function BasicLayout(props) {
     }
   }, [pathname, navigate]);
 
-  const handleToCreateCommodityOrder = useCallback(() => {
-    navigate("create_position");
+  const handleToCreatePostPosition = useCallback(() => {
+    navigate("post_position");
   }, [navigate]);
 
   const handleRightContentRender = useCallback(() => {
     return (
       <Space>
-        <Button type="primary" icon={(<FileDoneOutlined />)} onClick={handleToCreateCommodityOrder}>投放广告</Button>
+        <Button type="primary" icon={(<FileDoneOutlined />)} onClick={handleToCreatePostPosition}>投放广告</Button>
         <Popover
           trigger="click"
           title="用户信息"

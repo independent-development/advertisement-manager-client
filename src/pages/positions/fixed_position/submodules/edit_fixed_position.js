@@ -15,7 +15,7 @@ import EditPositionForm from "../forms/edit_position_form";
 import modify_position from "../services/modify_position";
 import get_position_detail from "../services/get_position_detail";
 
-export default function EditPosition(props) {
+export default function EditFixedPosition(props) {
   const [form] = Form.useForm();
 
   const navigate = useNavigate();
@@ -61,11 +61,11 @@ export default function EditPosition(props) {
 };
 
 
-EditPosition.propTypes = {
+EditFixedPosition.propTypes = {
 
 
 };
-EditPosition.defaultProps = {
+EditFixedPosition.defaultProps = {
 
 
 };

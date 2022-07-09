@@ -9,11 +9,13 @@ import RegistryPage from "@/pages/registry_page";
 
 import UserCenter from "@/pages/user_center";
 import OrderRecord from "@/pages/order_record";
-import PositionRecord from "@/pages/position_record";
 import TransactionRecord from "@/pages/transaction_record";
 
-import EditPosition from "@/pages/position_manage/submodules/edit_position";
-import CreatePosition from "@/pages/position_manage/submodules/create_position";
+import PositionRecord from "@/pages/positions/position_record";
+import PostPositionGuider from "@/pages/positions/post_position_guider";
+
+import EditFixedPosition from "@/pages/positions/fixed_position/submodules/edit_fixed_position";
+import CreateFixedPosition from "@/pages/positions/fixed_position/submodules/create_fixed_position";
 
 
 export default () => {
@@ -23,8 +25,9 @@ export default () => {
       <Route path="/forget" element={(<ForgetPage />)} />
       <Route path="/registry" element={(<RegistryPage />)} />
       <Route path="/" element={(<BasicLayout />)}>
-        <Route path="/edit_position" element={(<EditPosition />)} />
-        <Route path="/create_position" element={(<CreatePosition />)} />
+        <Route path="/post_position" element={(<PostPositionGuider />)} />
+        <Route path="/edit_fixed_position" element={(<EditFixedPosition />)} />
+        <Route path="/create_fixed_position" element={(<CreateFixedPosition />)} />
         <Route path="/order_record" element={(<OrderRecord />)} />
         <Route path="/position_record" element={(<PositionRecord />)} />
         <Route path="/transaction_record" element={(<TransactionRecord />)} />

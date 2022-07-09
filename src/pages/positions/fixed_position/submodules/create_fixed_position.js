@@ -12,7 +12,7 @@ import { PageContainer } from "@ant-design/pro-components";
 import CreatePositionForm from "../forms/create_position_form";
 import create_position from "../services/create_position";
 
-export default function CreatePosition(props) {
+export default function CreateFixedPosition(props) {
   const [form] = Form.useForm();
 
   const navigate = useNavigate();
@@ -44,11 +44,11 @@ export default function CreatePosition(props) {
 };
 
 
-CreatePosition.propTypes = {
+CreateFixedPosition.propTypes = {
 
 
 };
-CreatePosition.defaultProps = {
+CreateFixedPosition.defaultProps = {
 
 
 };
