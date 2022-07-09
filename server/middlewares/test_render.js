@@ -1,4 +1,4 @@
-const { server_render } = require("../assets/server.js");
+const { server_render } = require("../../assets/server.js");
 
 
 module.exports = (html_template) => async (request, response, next) => {
