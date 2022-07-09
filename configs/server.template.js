@@ -19,7 +19,7 @@ export function server_render({ html_template, language, location, dev_inject })
   /** 服务端渲染结构 **/
   $("#root").append(ReactDOM.renderToString(
     <I18nextProvider i18n={init18n(language)}>
-      <StaticRouter basename={`/ad-posters/${language}`} location={location}>
+      <StaticRouter basename={`/ad-poster/${language}`} location={location}>
         <div></div>
       </StaticRouter>
     </I18nextProvider>
