@@ -1,61 +1,64 @@
-const path = require("path");
 const cookieParser = require("cookie-parser");
 
 const auth = require("./middlewares/auth");
 const prefix = require("./middlewares/prefix");
-const render_content = require("./middlewares/local_render");
+const render_with_process = require("./utils/render_with_process");
 
-/**
- * @description 开发的时候服务端渲染的逻辑可以在这里调试
- * @param {Express} app app对象是一个express示例,可以在这个实例上执行挂载中间件等操作
- * @param {Function} server_render 这是编译后的服务端渲染方法,对应public中的导出函数
- * **/
-const html_template = (`
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Document</title>
-    <link rel="shortcut icon" href="/public/favicon.ico">
-    <script defer src="/main.js"></script>
-    <link href="/main.css" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
-  </html>
-`);
+const dev_inject = {
+  /** 登录页初始值 **/
+  login_initial_values: {
+    username: "test_user001",
+    password: "123456"
+  },
+  /** 注册页初始值 **/
+  registry_initial_values: {
+    username: "test_user001",
+    password: "123456",
+    e_mail: "1542874601@qq.com"
+  },
+  /** 广告位表单初始值 **/
+  position_initial_values: {
+    subject_detail_page: ["homepage"],
+    calculate_type: "DAY",
+    calculate_value: 1,
+    position_value: "PAGE_TOP",
+    content_type: "IMAGE",
+    resource_type: "OSS_URL",
+    resource_link: "https://ewr1.vultrobjects.com/test-bucket-002/4ba4e20401b8bdc4845ea6ecfa02e8ba.jpeg"
+  }
+};
 
 module.exports = function server_callback(app) {
   app.use(cookieParser());
-  app.use((request, response, next) => {
-    console.log("url===>", request.url, "path==>", request.path, "pathname==>", request.pathname);
-    if (request.url === "/") {
-      return response.redirect(301, "/ad-poster/zh/");
-    }
-    next();
-  });
-  app.use([prefix, auth, render_content(html_template)], (request, response, next) => {
-    const { path: request_path } = request;
-    const extname = path.extname(request_path);
-    if (extname) {
-      return next();
-    }
-    if (request_path === "/__webpack_hmr") {
-      return next();
-    }
+  app.use([auth, prefix], async (request, response) => {
     if (request.prefix !== "ad-poster") {
       return response.redirect(301, "/ad-poster/zh/");
     }
     if (request.language !== "zh") {
       return response.redirect(301, "/ad-poster/zh/");
     }
-    if (!request.auth) {
-      if (request_path !== "/ad-poster/zh/login") {
-        return response.redirect(301, "/ad-poster/zh/login");
-      }
-    }
-    response.send(request.render_content);
+    const { devMiddleware } = response.locals.webpack;
+    const jsonWebpackStats = devMiddleware.stats.toJson();
+    const render_html = await render_with_process({
+      dev_inject,
+      location: request.path,
+      language: request.language,
+      html_template: `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <title>Document</title>
+          <link rel="shortcut icon" href="/public/favicon.ico">
+          <script defer src="${jsonWebpackStats.publicPath}main.js"></script>
+          <link href="${jsonWebpackStats.publicPath}main.css" rel="stylesheet">
+        </head>
+        <body>
+          <div id="root"></div>
+        </body>
+        </html>
+    `});
+    response.send(render_html);
   });
 };

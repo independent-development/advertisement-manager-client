@@ -4,6 +4,7 @@ const path = require("path");
 
 module.exports = {
   hash: true,
+  publicPath: "/ad-poster/",
   output_path: path.resolve(__dirname, "./assets/"),
   title: "My Server App",
   client_template: path.resolve(__dirname, "./configs/client.template.js"),
