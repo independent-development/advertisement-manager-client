@@ -30,7 +30,7 @@ const html_template = (`
 module.exports = function server_callback(app) {
   app.use(cookieParser());
   app.use((request, response, next) => {
-    if (request.path === "/") {
+    if (request.url === "/") {
       return response.redirect(301, "/ad-poster/zh/");
     }
     next();
