@@ -37,7 +37,9 @@ const app = express();
       return response.redirect(301, "/ad-poster/zh/");
     }
     if (!request.auth) {
-      return response.redirect(301, "/ad-poster/zh/login");
+      if (request_path !== "/ad-poster/zh/login") {
+        return response.redirect(301, "/ad-poster/zh/login");
+      }
     }
     response.send(request.render_content);
   });
