@@ -52,7 +52,7 @@ module.exports = function server_callback(app) {
       return response.redirect(301, "/ad-poster/zh/");
     }
     if (!request.auth) {
-      if (request_path !== "/ad-poster/zh/login") {
+      if (request_path !== "/ad-poster/zh/login/") {
         return response.redirect(301, "/ad-poster/zh/login");
       }
     }
