@@ -24,7 +24,7 @@ export default function RegistryForm(props) {
     try {
       const result = await formRef.current.validateFields();
       await post_request({
-        url: "/user/registry",
+        url: "/account/user/v1/registry",
         data: result
       });
       message.success("注册成功!");

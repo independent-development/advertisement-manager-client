@@ -3,7 +3,7 @@ import { message } from "antd";
 
 const instance = axios.create({
   method: "POST",
-  baseURL: "/api/v1/",
+  baseURL: "/api/",
 });
 
 export default async function post_request(params) {

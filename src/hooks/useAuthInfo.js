@@ -7,7 +7,7 @@ export default function useAuthInfo() {
 
   useEffect(() => {
     (async () => {
-      const result = await get_request({ url: "/user/detail" });
+      const result = await get_request({ url: "/account/user/v1/detail" });
       set_auth_info(result);
     })();
   }, []);

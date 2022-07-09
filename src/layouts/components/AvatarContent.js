@@ -16,7 +16,7 @@ export default function AvatarContent({ wallet, username, mobile_phone }) {
   const navigate = useNavigate();
 
   const handleLogout = useCallback(async () => {
-    await post_request({ url: "/user/logout" });
+    await post_request({ url: "/account/user/v1/logout" });
     await navigate("/login");
   }, [navigate]);
 

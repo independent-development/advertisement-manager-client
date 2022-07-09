@@ -23,8 +23,8 @@ export default function UserLoginForm(props) {
 
   const handleSubmit = useCallback(async () => {
     const user_login_info = await formRef.current.validateFields();
-    const login_result = await post_request({
-      url: "/user/login",
+    await post_request({
+      url: "/account/user/v1/login",
       data: user_login_info
     });
     await navigate("/");

@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "development") {
 
 ReactDOM.render((
   <I18nextProvider i18n={init18n(window.language)}>
-    <BrowserRouter basename={window.language}>
+    <BrowserRouter basename={`/ad-poster/${window.language}`}>
       <MainBlock />
     </BrowserRouter>
   </I18nextProvider>
