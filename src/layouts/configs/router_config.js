@@ -11,11 +11,11 @@ export default {
       name: "固定广告位",
       path: "/position/banner_fixed_position_record"
     }, {
-      name: "随机信息流广告位",
-      path: "/position/random_message_position_record"
-    }, {
       name: "视频贴片广告位",
       path: "/position/video_paster_position_record"
+    }, {
+      name: "随机信息流广告位",
+      path: "/position/random_message_position_record"
     }]
   }, {
     name: "订单列表",

@@ -21,7 +21,7 @@ export default function CreateRandomMessagePosition(props) {
   const handleSaveOrder = useCallback(async () => {
     const position_info = await form.validateFields();
     await create_position(position_info);
-    await navigate("/order_record");
+    await navigate("/position/random_message_position_record");
   }, [form, navigate]);
 
   const handleCreateAndPay = useCallback(async () => {

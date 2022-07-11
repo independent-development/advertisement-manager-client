@@ -38,7 +38,7 @@ export default function EditRandomMessagePosition(props) {
     const position_info = await form.validateFields();
     const position_id = search_params.get("position_id");
     await modify_position(position_id, position_info);
-    await navigate("/order_record");
+    await navigate("/position/random_message_position_record");
   }, [form, navigate, search_params]);
 
   const handleCreateAndPay = useCallback(async () => {
