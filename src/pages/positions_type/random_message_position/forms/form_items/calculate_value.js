@@ -7,12 +7,6 @@ import { Form, InputNumber } from "antd";
 // import css from "./style.scss";
 // import css from "./style.less";
 
-const addonAfter = {
-  "YEAR": "年",
-  "MONTH": "月",
-  "DAY": "天",
-  "HOUR": "小时"
-};
 
 const calculate_value = [{
   required: true,
@@ -21,20 +15,13 @@ const calculate_value = [{
 
 export default function CalculateValue(props) {
   return (
-    <Form.Item noStyle shouldUpdate>
-      {({ getFieldValue }) => {
-        const calculate_type = getFieldValue("calculate_type");
-        return (
-          <Form.Item name="calculate_value" label="展示周期" rules={calculate_value}>
-            <InputNumber
-              min={1}
-              style={{ width: 400 }}
-              formatter={value => parseInt(value)}
-              addonAfter={calculate_type ? addonAfter[calculate_type] : ""}
-            />
-          </Form.Item>
-        )
-      }}
+    <Form.Item name="calculate_value" label="展示次数" rules={calculate_value}>
+      <InputNumber
+        min={1000}
+        style={{ width: 400 }}
+        formatter={value => parseInt(value)}
+        addonAfter="次"
+      />
     </Form.Item>
   )
 };

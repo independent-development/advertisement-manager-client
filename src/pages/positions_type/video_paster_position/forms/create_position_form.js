@@ -16,7 +16,7 @@ import CalculateValue from "./form_items/calculate_value";
 import Placeholder from "./form_items/pleaceholder";
 import SubjectDetail from "./form_items/subject_detail";
 import ContentType from "./form_items/content_type";
-import ResourceType from "./form_items/resource_type";
+import ResourceLinkType from "./form_items/resource_link_type";
 import ResourceLink from "./form_items/resource_link";
 import CommodityTitle from "./form_items/commodity_title";
 import CommodityDiscription from "./form_items/commodity_discription";
@@ -49,7 +49,7 @@ export default function CreateCommodityForm(props) {
         </ProCard>
         <ProCard title="详细配置">
           <ContentType />
-          <ResourceType />
+          <ResourceLinkType />
           <ResourceLink />
           <CommodityTitle />
           <CommodityDiscription />

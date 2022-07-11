@@ -11,12 +11,8 @@ import { ProCard } from "@ant-design/pro-components";
 
 import form_config from "./configs/form_config";
 
-import CalculateType from "./form_items/calculate_type";
 import CalculateValue from "./form_items/calculate_value";
-import Placeholder from "./form_items/pleaceholder";
-import SubjectDetail from "./form_items/subject_detail";
-import ContentType from "./form_items/content_type";
-import ResourceType from "./form_items/resource_type";
+import LinkType from "./form_items/link_type";
 import ResourceLink from "./form_items/resource_link";
 import CommodityTitle from "./form_items/commodity_title";
 import CommodityDiscription from "./form_items/commodity_discription";
@@ -27,8 +23,6 @@ export default function CreateCommodityForm(props) {
 
   const computed_initial_values = useMemo(() => {
     const clone_initial_values = { ...initialValues };
-    clone_initial_values.calculate_type = "DAY";
-    clone_initial_values.calculate_value = 1;
     clone_initial_values.content_type = "IMAGE";
     clone_initial_values.resource_type = "OSS_URL";
     return clone_initial_values;
@@ -42,14 +36,10 @@ export default function CreateCommodityForm(props) {
     <Form {...form_config} initialValues={computed_initial_values} form={form} onValuesChange={handleValuesChange}>
       <ProCard ghost direction="column" gutter={[16, 16]}>
         <ProCard title="基础费用配置">
-          <CalculateType />
           <CalculateValue />
-          <SubjectDetail />
-          <Placeholder />
         </ProCard>
         <ProCard title="详细配置">
-          <ContentType />
-          <ResourceType />
+          <LinkType />
           <ResourceLink />
           <CommodityTitle />
           <CommodityDiscription />
@@ -66,5 +56,5 @@ CreateCommodityForm.propTypes = {
 };
 
 CreateCommodityForm.defaultProps = {
-  initialValues: getProperty(window, "dev_inject.position_initial_values", {})
+  initialValues: getProperty(window, "dev_inject.random_message_position_initial_values", {})
 };

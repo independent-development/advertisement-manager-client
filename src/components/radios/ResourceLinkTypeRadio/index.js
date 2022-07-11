@@ -7,7 +7,7 @@ import React, { useEffect, useCallback } from "react";
 // import css from "./style.scss";
 // import css from "./style.less";
 
-export default function ResourceTypeRadio(props) {
+export default function ResourceLinkTypeRadio(props) {
   const { value, onChange, form, content_type, ...otherProps } = props;
 
   useEffect(() => {
@@ -37,11 +37,11 @@ export default function ResourceTypeRadio(props) {
 };
 
 
-ResourceTypeRadio.propTypes = {
+ResourceLinkTypeRadio.propTypes = {
 
 
 };
-ResourceTypeRadio.defaultProps = {
+ResourceLinkTypeRadio.defaultProps = {
   value: "",
   buttonStyle: "solid",
   onChange() { }

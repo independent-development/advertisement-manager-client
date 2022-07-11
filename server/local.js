@@ -17,11 +17,8 @@ const dev_inject = {
     e_mail: "1542874601@qq.com"
   },
   /** 广告位表单初始值 **/
-  position_initial_values: {
-    subject_detail_page: ["homepage"],
-    calculate_type: "DAY",
-    calculate_value: 1,
-    position_value: "PAGE_TOP",
+  random_message_position_initial_values: {
+    calculate_value: 1000,
     content_type: "IMAGE",
     resource_type: "OSS_URL",
     resource_link: "https://ewr1.vultrobjects.com/test-bucket-002/4ba4e20401b8bdc4845ea6ecfa02e8ba.jpeg"
