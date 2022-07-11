@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect, useCallback } from "react";
+import { Tabs } from "@ant-design/pro-components";
 import { PageContainer } from "@ant-design/pro-components";
+import React, { useState, useEffect, useCallback } from "react";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
 
@@ -9,7 +10,7 @@ import { PageContainer } from "@ant-design/pro-components";
 import OrderList from "./components/order_list";
 import get_order_record_list from "./services/get_order_record_list";
 
-export default function CommodityRecord(props) {
+export default function OrderRecord(props) {
   const [data_source, set_data_source] = useState([]);
 
   const handleGetRecordList = useCallback(async () => {
@@ -28,11 +29,11 @@ export default function CommodityRecord(props) {
 };
 
 
-CommodityRecord.propTypes = {
+OrderRecord.propTypes = {
 
 
 };
-CommodityRecord.defaultProps = {
+OrderRecord.defaultProps = {
 
 
 };

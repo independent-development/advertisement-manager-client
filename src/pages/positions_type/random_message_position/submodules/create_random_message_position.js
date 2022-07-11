@@ -34,7 +34,7 @@ export default function CreateRandomMessagePosition(props) {
       footer={[
         (<span key="1">10 (USDT)</span>),
         (<Button key="2" type="primary">预览效果</Button>),
-        (<Button key="3" type="default" onClick={handleSaveOrder}>保存订单(稍后支付)</Button>),
+        (<Button key="3" type="default" onClick={handleSaveOrder}>保存配置(稍后支付)</Button>),
         (<Button key="4" type="primary">立即支付</Button>),
       ]}
     >

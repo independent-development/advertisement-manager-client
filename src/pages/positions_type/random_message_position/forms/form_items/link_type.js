@@ -18,7 +18,7 @@ export default function ResourceLinkType(props) {
     <Form.Item noStyle shouldUpdate>
       {(form) => {
         return (
-          <Form.Item name="resource_type" label="URL类型" rules={resource_type}>
+          <Form.Item name="resource_type" label="链接形式" rules={resource_type}>
             <ResourceLinkTypeRadio form={form} content_type="IMAGE" />
           </Form.Item>
         )

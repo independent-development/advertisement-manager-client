@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 import moment from "moment";
+import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import React, { useMemo, useCallback } from "react";
 import { Space, Table, Button, Tooltip } from "antd";
 // import propTypes from "prop-types";
 // import classnames from "classnames";
 
 // import css from "./style.scss";
 // import css from "./style.less";
+
 
 export default function OrderList(props) {
   const { dataSource, onDelete } = props;
@@ -57,31 +58,6 @@ export default function OrderList(props) {
           </Space>
         )
       }
-      // if (relation_transaction.transaction_status === "CREATED") {
-      //   return (
-      //     <Space>
-      //       <Button type="default" onClick={() => navigate(`/edit_position?position_id=${position_id}`)}>编辑</Button>
-      //       <Button type="primary">支付</Button>
-      //       <Button danger type="primary">取消</Button>
-      //     </Space>
-      //   )
-      // }
-      // if (relation_transaction.transaction_status === "COMPLATE") {
-      //   return (
-      //     <Space>
-      //       <Button type="default">查看</Button>
-      //       <Button type="primary">再次投放</Button>
-      //     </Space>
-      //   )
-      // }
-      // if (relation_transaction.transaction_status === "FAILD") {
-      //   return (
-      //     <Space>
-      //       <Button type="primary">重新投放</Button>
-      //     </Space>
-      //   )
-      // }
-      // return false;
     }
   }]), []);
 
