@@ -12,7 +12,7 @@ import { ProCard } from "@ant-design/pro-components";
 import form_config from "./configs/form_config";
 
 import CalculateValue from "./form_items/calculate_value";
-import LinkType from "./form_items/link_type";
+import ResourceLinkType from "./form_items/resource_link_type";
 import ResourceLink from "./form_items/resource_link";
 import CommodityTitle from "./form_items/commodity_title";
 import CommodityDiscription from "./form_items/commodity_discription";
@@ -39,7 +39,7 @@ export default function CreateCommodityForm(props) {
           <CalculateValue />
         </ProCard>
         <ProCard title="详细配置">
-          <LinkType />
+          <ResourceLinkType />
           <ResourceLink />
           <CommodityTitle />
           <CommodityDiscription />

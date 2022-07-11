@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect, useCallback } from "react";
 import { PageContainer } from "@ant-design/pro-components";
-// import classnames from "classnames";
+import React, { useState, useEffect, useCallback } from "react";
 // import propTypes from "prop-types";
+// import classnames from "classnames";
 
 // import css from "./style.scss";
 // import css from "./style.less";
 import OrderList from "./components/position_list";
 import get_position_list from "./services/get_position_list";
 
-export default function PositionRecord(props) {
+export default function RandomMessagePositionRecord(props) {
   const [data_source, set_data_source] = useState([]);
 
   const handleGetRecordList = useCallback(async () => {
@@ -28,11 +28,11 @@ export default function PositionRecord(props) {
 };
 
 
-PositionRecord.propTypes = {
+RandomMessagePositionRecord.propTypes = {
 
 
 };
-PositionRecord.defaultProps = {
+RandomMessagePositionRecord.defaultProps = {
 
 
 };

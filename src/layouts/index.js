@@ -23,7 +23,7 @@ export default function BasicLayout(props) {
 
   useEffect(() => {
     if (pathname === "/") {
-      navigate("position_record")
+      navigate("/")
     }
   }, [pathname, navigate]);
 

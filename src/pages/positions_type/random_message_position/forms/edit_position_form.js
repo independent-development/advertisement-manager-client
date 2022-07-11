@@ -11,6 +11,7 @@ import { ProCard } from "@ant-design/pro-components";
 
 import form_config from "./configs/form_config";
 
+import ResourceLinkType from "./form_items/resource_link_type";
 import CalculateValue from "./form_items/calculate_value";
 import ResourceLink from "./form_items/resource_link";
 import CommodityTitle from "./form_items/commodity_title";
@@ -23,7 +24,6 @@ export default function EditPositionForm(props) {
   const formatInitialValues = useMemo(() => {
     if (initialValues) {
       const clone_initial_values = { ...initialValues };
-      clone_initial_values.subject_detail_page = initialValues.subject_detail_page.split("/");
       return clone_initial_values;
     }
     return null;
@@ -46,6 +46,7 @@ export default function EditPositionForm(props) {
           <CalculateValue />
         </ProCard>
         <ProCard title="详细配置">
+          <ResourceLinkType />
           <ResourceLink />
           <CommodityTitle />
           <CommodityDiscription />

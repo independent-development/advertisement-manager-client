@@ -6,33 +6,33 @@ import React, { useState, useEffect, useCallback } from "react";
 
 // import css from "./style.scss";
 // import css from "./style.less";
-import OrderList from "./components/order_list";
-import get_order_record_list from "./services/get_order_record_list";
+import OrderList from "./components/position_list";
+import get_position_list from "./services/get_position_list";
 
-export default function OrderRecord(props) {
+export default function BannerFixedPositionRecord(props) {
   const [data_source, set_data_source] = useState([]);
 
   const handleGetRecordList = useCallback(async () => {
-    const record_list = await get_order_record_list();
-    console.log(record_list);
-    set_data_source(record_list);
+    const position_list = await get_position_list();
+    console.log(position_list);
+    set_data_source(position_list);
   }, []);
 
   useEffect(() => { handleGetRecordList() }, [handleGetRecordList]);
 
   return (
-    <PageContainer content="订单列表">
+    <PageContainer content="广告位">
       <OrderList dataSource={data_source} />
     </PageContainer>
   )
 };
 
 
-OrderRecord.propTypes = {
+BannerFixedPositionRecord.propTypes = {
 
 
 };
-OrderRecord.defaultProps = {
+BannerFixedPositionRecord.defaultProps = {
 
 
 };
