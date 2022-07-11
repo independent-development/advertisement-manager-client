@@ -14,9 +14,14 @@ import TransactionRecord from "@/pages/transaction_record";
 import PositionRecord from "@/pages/positions/position_record";
 import PostPositionGuider from "@/pages/positions/post_position_guider";
 
-import EditFixedPosition from "@/pages/positions/fixed_position/submodules/edit_fixed_position";
-import CreateFixedPosition from "@/pages/positions/fixed_position/submodules/create_fixed_position";
+import EditBannerFixedPosition from "@/pages/positions/banner_fixed_position/submodules/edit_banner_fixed_position";
+import CreateBannerFixedPosition from "@/pages/positions/banner_fixed_position/submodules/create_banner_fixed_position";
 
+import EditVideoPasterPosition from "@/pages/positions/video_paster_position/submodules/edit_video_paster_position";
+import CreateVideoPasterPosition from "@/pages/positions/video_paster_position/submodules/create_video_paster_position";
+
+import EditRandomMessagePosition from "@/pages/positions/random_message_position/submodules/edit_random_message_position";
+import CreateRandomMessagePosition from "@/pages/positions/random_message_position/submodules/create_random_message_position";
 
 export default () => {
   return (
@@ -25,11 +30,20 @@ export default () => {
       <Route path="/forget" element={(<ForgetPage />)} />
       <Route path="/registry" element={(<RegistryPage />)} />
       <Route path="/" element={(<BasicLayout />)}>
-        <Route path="/post_position" element={(<PostPositionGuider />)} />
-        <Route path="/edit_fixed_position" element={(<EditFixedPosition />)} />
-        <Route path="/create_fixed_position" element={(<CreateFixedPosition />)} />
-        <Route path="/order_record" element={(<OrderRecord />)} />
         <Route path="/position_record" element={(<PositionRecord />)} />
+        <Route path="/post_position_guider" element={(<PostPositionGuider />)} />
+
+        {/** 固定广告位 **/}
+        <Route path="/edit_bannder_fixed_position" element={(<EditBannerFixedPosition />)} />
+        <Route path="/create_bannder_fixed_position" element={(<CreateBannerFixedPosition />)} />
+        {/** 贴片广告位 **/}
+        <Route path="/edit_video_paster_position" element={(<EditVideoPasterPosition />)} />
+        <Route path="/create_video_paster_position" element={(<CreateVideoPasterPosition />)} />
+        {/** 随机信息流广告位 **/}
+        <Route path="/edit_random_message_position" element={(<EditRandomMessagePosition />)} />
+        <Route path="/create_random_message_position" element={(<CreateRandomMessagePosition />)} />
+
+        <Route path="/order_record" element={(<OrderRecord />)} />
         <Route path="/transaction_record" element={(<TransactionRecord />)} />
         <Route path="/user_center" element={(<UserCenter />)} />
       </Route>

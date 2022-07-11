@@ -28,7 +28,7 @@ export default function BasicLayout(props) {
   }, [pathname, navigate]);
 
   const handleToCreatePostPosition = useCallback(() => {
-    navigate("post_position");
+    navigate("post_position_guider");
   }, [navigate]);
 
   const handleRightContentRender = useCallback(() => {
