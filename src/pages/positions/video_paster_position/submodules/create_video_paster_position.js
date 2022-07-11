@@ -30,7 +30,7 @@ export default function CreateVideoPasterPosition(props) {
 
   return (
     <PageContainer
-      content="投放广告"
+      content="投放视频贴片广告"
       footer={[
         (<span key="1">10 (USDT)</span>),
         (<Button key="2" type="primary">预览效果</Button>),

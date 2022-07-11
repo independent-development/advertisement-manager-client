@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
 import { Tag, Avatar, Button } from "antd";
+import { useNavigate } from "react-router-dom";
+import React, { useState, useCallback } from "react";
 import { ProCard, CheckCard } from "@ant-design/pro-components";
 import { PlayCircleOutlined, VideoCameraAddOutlined } from "@ant-design/icons";
 // import propTypes from "prop-types";
@@ -12,7 +13,22 @@ import { PlayCircleOutlined, VideoCameraAddOutlined } from "@ant-design/icons";
 import image_icon from "./assets/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg";
 
 export default function PostPositionGuider(props) {
+  const navigate = useNavigate();
+
   const [value, set_value] = useState("random");
+
+  const hendleNavigate = useCallback(async () => {
+    if (value === "fixed") {
+      await navigate("/create_banner_fixed_position");
+    }
+    if (value === "random") {
+      await navigate("/create_random_message_position");
+    }
+    if (value === "paster") {
+      await navigate("/create_video_paster_position");
+    }
+  }, [value]);
+
   return (
     <ProCard title="选择广告位类型">
       <CheckCard.Group style={{ width: "100%" }} value={value} onChange={(value) => set_value(value)}>
@@ -67,7 +83,7 @@ export default function PostPositionGuider(props) {
           )}
         />
       </CheckCard.Group>
-      <Button block size="large" type="primary">开始投放</Button>
+      <Button block size="large" type="primary" onClick={hendleNavigate}>开始投放</Button>
     </ProCard>
   )
 };

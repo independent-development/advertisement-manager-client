@@ -47,7 +47,7 @@ export default function EditBannerFixedPosition(props) {
 
   return (
     <PageContainer
-      content={`编辑广告-${search_params.get("position_id")}`}
+      content={`编辑固定广告-${search_params.get("position_id")}`}
       footer={initial_values ? [
         (<span key="1">10 (USDT)</span>),
         (<Button key="2" type="primary">预览效果</Button>),
