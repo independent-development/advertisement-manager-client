@@ -18,7 +18,7 @@ export default function ResourceLink(props) {
     <Form.Item noStyle shouldUpdate>
       {({ getFieldValue }) => {
         return (
-          <Form.Item name="resource_link" label="资源链接" rules={resource_link}>
+          <Form.Item name="resource_link" label="资源内容" rules={resource_link}>
             <ResourceLinkInput content_type="IMAGE" resource_type={getFieldValue("resource_type")} />
           </Form.Item>
         )

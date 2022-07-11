@@ -16,7 +16,7 @@ export default function CalculateValue(props) {
   return (
     <Form.Item name="calculate_value" label="展示次数" rules={calculate_value}>
       <InputNumber
-        min={1000}
+        min={100}
         style={{ width: 400 }}
         formatter={value => parseInt(value)}
         addonAfter="次"
