@@ -9,6 +9,7 @@ import { PageContainer } from "@ant-design/pro-components";
 // import css from "./style.scss";
 // import css from "./style.less";
 
+import useRandomMessageAmount from "../hooks/useRandomMessageAmount";
 import CreatePositionForm from "../forms/create_position_form";
 import create_position from "../services/create_position";
 
@@ -16,6 +17,8 @@ export default function CreateRandomMessagePosition(props) {
   const [form] = Form.useForm();
 
   const navigate = useNavigate();
+
+  const [amount, get_amount] = useRandomMessageAmount();
 
   /** 保存订单稍后支付 **/
   const handleSaveOrder = useCallback(async () => {
@@ -32,13 +35,13 @@ export default function CreateRandomMessagePosition(props) {
     <PageContainer
       content="投放随机信息流广告"
       footer={[
-        (<span key="1">10 (USDT)</span>),
+        (<span key="1">{amount} (USDT)</span>),
         (<Button key="2" type="primary">预览效果</Button>),
         (<Button key="3" type="default" onClick={handleSaveOrder}>保存配置(稍后支付)</Button>),
         (<Button key="4" type="primary">立即支付</Button>),
       ]}
     >
-      <CreatePositionForm form={form} />
+      <CreatePositionForm form={form} onValuesChange={get_amount} />
     </PageContainer >
   )
 };

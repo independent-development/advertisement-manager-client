@@ -26,6 +26,7 @@
     "@ant-design/icons": "^4.7.0",
     "@ant-design/pro-components": "^1.1.6",
     "@aws-sdk/client-s3": "^3.118.1",
+    "ahooks": "^3.5.2",
     "antd": "^4.21.3",
     "cheerio": "^1.0.0-rc.10",
     "classnames": "2.3.1",

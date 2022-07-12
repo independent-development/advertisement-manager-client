@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Form } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
-import React, { useMemo, useCallback } from "react";
+import React, { useMemo, useEffect, useCallback } from "react";
 import { ProCard } from "@ant-design/pro-components";
 // import propTypes from "prop-types";
 // import classnames from "classnames";
@@ -19,7 +19,13 @@ import CommodityDiscription from "./form_items/commodity_discription";
 import CommodityLinkURL from "./form_items/commodity_link_url";
 
 export default function EditPositionForm(props) {
-  const { form, initialValues, ...otherProps } = props;
+  const { form, initialValues, onValuesChange, ...otherProps } = props;
+
+  useEffect(() => {
+    if (initialValues) {
+      onValuesChange(initialValues.calculate_value);
+    }
+  }, [initialValues, onValuesChange]);
 
   const formatInitialValues = useMemo(() => {
     if (initialValues) {
@@ -29,9 +35,10 @@ export default function EditPositionForm(props) {
     return null;
   }, [initialValues]);
 
-  const handleValuesChange = useCallback((changeValues, allValues) => {
-    // console.log("allValues", allValues);
-  }, []);
+  const handleValuesChange = useCallback(async (changeValues, allValues) => {
+    const { calculate_value } = allValues;
+    await onValuesChange(calculate_value);
+  }, [onValuesChange]);
 
   if (!formatInitialValues) {
     return (
@@ -63,5 +70,6 @@ EditPositionForm.propTypes = {
 };
 
 EditPositionForm.defaultProps = {
-  initialValues: null
+  initialValues: null,
+  onValuesChange() { }
 };

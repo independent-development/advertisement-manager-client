@@ -19,7 +19,7 @@ import CommodityDiscription from "./form_items/commodity_discription";
 import CommodityLinkURL from "./form_items/commodity_link_url";
 
 export default function CreateCommodityForm(props) {
-  const { form, initialValues, ...otherProps } = props;
+  const { form, initialValues, onValuesChange, ...otherProps } = props;
 
   const computed_initial_values = useMemo(() => {
     const clone_initial_values = { ...initialValues };
@@ -28,9 +28,10 @@ export default function CreateCommodityForm(props) {
     return clone_initial_values;
   }, [initialValues]);
 
-  const handleValuesChange = useCallback((changeValues, allValues) => {
-    // console.log("allValues", allValues);
-  }, []);
+  const handleValuesChange = useCallback(async (changeValues, allValues) => {
+    const { calculate_value } = allValues;
+    await onValuesChange(calculate_value);
+  }, [onValuesChange]);
 
   return (
     <Form {...form_config} initialValues={computed_initial_values} form={form} onValuesChange={handleValuesChange}>
@@ -56,5 +57,6 @@ CreateCommodityForm.propTypes = {
 };
 
 CreateCommodityForm.defaultProps = {
-  initialValues: getProperty(window, "dev_inject.random_message_position_initial_values", {})
+  initialValues: getProperty(window, "dev_inject.random_message_position_initial_values", {}),
+  onValuesChange() { }
 };
