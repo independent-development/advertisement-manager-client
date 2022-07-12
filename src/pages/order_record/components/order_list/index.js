@@ -9,6 +9,7 @@ import { Space, Table, Button, Tooltip } from "antd";
 // import css from "./style.scss";
 // import css from "./style.less";
 
+import OperationColumn from "./components/OperationColumn";
 
 export default function OrderList(props) {
   const { dataSource, onDelete } = props;
@@ -49,15 +50,8 @@ export default function OrderList(props) {
   }, {
     title: "详细操作",
     align: "center",
-    render({ relation_transaction }) {
-      if (!relation_transaction) {
-        return (
-          <Space>
-            <Button type="primary">支付</Button>
-            <Button danger type="primary">取消</Button>
-          </Space>
-        )
-      }
+    render(value) {
+      return (<OperationColumn {...value} />)
     }
   }]), []);
 
