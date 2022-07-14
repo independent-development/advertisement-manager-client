@@ -11,6 +11,7 @@ import { ProCard } from "@ant-design/pro-components";
 
 import form_config from "./configs/form_config";
 
+import CalculateType from "./form_items/calculate_type";
 import ResourceLinkType from "./form_items/resource_link_type";
 import CalculateValue from "./form_items/calculate_value";
 import ResourceLink from "./form_items/resource_link";
@@ -50,6 +51,7 @@ export default function EditPositionForm(props) {
     <Form {...form_config} initialValues={formatInitialValues} form={form} onValuesChange={handleValuesChange}>
       <ProCard ghost direction="column" gutter={[16, 16]}>
         <ProCard title="基础费用配置">
+          <CalculateType />
           <CalculateValue />
         </ProCard>
         <ProCard title="详细配置">

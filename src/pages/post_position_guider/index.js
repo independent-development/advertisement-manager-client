@@ -62,8 +62,7 @@ export default function PostPositionGuider(props) {
           style={{ width: "100%", height: 100 }}
           description={(
             <div>
-              在<strong style={{ color: "black" }}>详情页</strong>中根据
-              <strong style={{ color: "black" }}>优先级</strong>随机展示一定的次数,
+              在<strong style={{ color: "black" }}>详情页</strong>展示一定的次数,
               只支持<strong style={{ color: "black" }}>按量计费</strong>
             </div>
           )}
