@@ -41,6 +41,7 @@ export default function PostPositionGuider(props) {
             <div>
               在网站或者应用的的
               <strong style={{ color: "black" }}>首页Banner位上</strong>
+              <strong style={{ color: "black" }}>按照投放的先后顺序</strong>
               进行展示,收费较高
             </div>
           )}
@@ -67,6 +68,7 @@ export default function PostPositionGuider(props) {
               <strong style={{ color: "black" }}>1:1</strong>
               大小的卡片形式在<strong style={{ color: "black" }}>非首页之外</strong>
               的地方<strong style={{ color: "black" }}>以小卡片的形式</strong>
+              在每个页面<strong style={{ color: "black" }}>按照投放的先后顺序</strong>
               进行展示
             </div>
           )}
