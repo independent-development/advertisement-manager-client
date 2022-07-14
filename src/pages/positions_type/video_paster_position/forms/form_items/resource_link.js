@@ -19,7 +19,7 @@ export default function ResourceLink(props) {
       {({ getFieldValue }) => {
         return (
           <Form.Item name="resource_link" label="资源链接" rules={resource_link}>
-            <ResourceLinkInput content_type={getFieldValue("content_type")} resource_type={getFieldValue("resource_type")} />
+            <ResourceLinkInput length_width_ratio={getFieldValue("length_width_ratio")} />
           </Form.Item>
         )
       }}
