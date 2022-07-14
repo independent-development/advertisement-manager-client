@@ -1,5 +1,5 @@
 const { match } = require("path-to-regexp");
-const match_function = match("/:prefix?/:language?/:pathname?");
+const match_function = match("/:prefix?/:language?/:pathname1?/:pathname2?");
 
 module.exports = async (request, response, next) => {
   const { path: request_path } = request;

@@ -19,13 +19,13 @@ export default function BasicLayout(props) {
   const auth_info = useAuthInfo();
   const [collapsed, setCollapsed] = useState(false);
 
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
 
-  useEffect(() => {
-    if (pathname === "/") {
-      navigate("/")
-    }
-  }, [pathname, navigate]);
+  // useEffect(() => {
+  //   if (pathname === "/") {
+  //     navigate("/")
+  //   }
+  // }, [pathname, navigate]);
 
   const handleToCreatePostPosition = useCallback(() => {
     navigate("post_position_guider");
