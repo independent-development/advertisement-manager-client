@@ -21,8 +21,8 @@ export default function PostPositionGuider(props) {
     if (value === "fixed") {
       await navigate("/create_banner_fixed_position");
     }
-    if (value === "random") {
-      await navigate("/create_random_message_position");
+    if (value === "card") {
+      await navigate("/create_message_card_position");
     }
     if (value === "paster") {
       await navigate("/create_video_paster_position");
@@ -46,10 +46,10 @@ export default function PostPositionGuider(props) {
           )}
         />
         <CheckCard
-          value="random"
+          value="card"
           title={(
             <div>
-              <span style={{ marginRight: 10 }}>信息流随机广告位</span>
+              <span style={{ marginRight: 10 }}>信息卡片广告位</span>
               <Tag color="green">推荐</Tag>
             </div>
           )}
@@ -66,7 +66,8 @@ export default function PostPositionGuider(props) {
               或者
               <strong style={{ color: "black" }}>1:1</strong>
               大小的卡片形式在<strong style={{ color: "black" }}>非首页之外</strong>
-              的地方进行展示
+              的地方<strong style={{ color: "black" }}>以小卡片的形式</strong>
+              进行展示
             </div>
           )}
         />

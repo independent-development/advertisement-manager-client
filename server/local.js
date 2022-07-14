@@ -21,7 +21,7 @@ const dev_inject = {
     calculate_type: "NUMBER",
     calculate_value: 1000,
     length_width_ratio: "W1H1",
-    resource_link: "https://ewr1.vultrobjects.com/test-bucket-002/4ba4e20401b8bdc4845ea6ecfa02e8ba.jpeg"
+    resource_link: "https://ewr1.vultrobjects.com/test-bucket-002/12fd36b4d608a779b56e7665a5372d82.jpeg"
   }
 };
 

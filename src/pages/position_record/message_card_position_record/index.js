@@ -9,7 +9,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import OrderList from "./components/position_list";
 import get_position_list from "./services/get_position_list";
 
-export default function RandomMessagePositionRecord(props) {
+export default function MessageCardPositionRecord(props) {
   const [data_source, set_data_source] = useState([]);
 
   const handleGetRecordList = useCallback(async () => {
@@ -28,11 +28,11 @@ export default function RandomMessagePositionRecord(props) {
 };
 
 
-RandomMessagePositionRecord.propTypes = {
+MessageCardPositionRecord.propTypes = {
 
 
 };
-RandomMessagePositionRecord.defaultProps = {
+MessageCardPositionRecord.defaultProps = {
 
 
 };

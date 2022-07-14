@@ -46,7 +46,7 @@ export default function OrderList(props) {
       if (!relation_transaction) {
         return (
           <Space>
-            <Button type="primary" onClick={() => navigate(`/edit_random_message_position?position_id=${position_id}`)}>编辑</Button>
+            <Button type="primary" onClick={() => navigate(`/edit_message_card_position?position_id=${position_id}`)}>编辑</Button>
             <Button type="default">详情</Button>
             <Button danger type="primary">下架</Button>
           </Space>

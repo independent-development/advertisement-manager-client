@@ -9,22 +9,22 @@ import { PageContainer } from "@ant-design/pro-components";
 // import css from "./style.scss";
 // import css from "./style.less";
 
-import useRandomMessageAmount from "../hooks/useRandomMessageAmount";
+import useMessageCardAmount from "../hooks/useMessageCardAmount";
 import CreatePositionForm from "../forms/create_position_form";
 import create_position from "../services/create_position";
 
-export default function CreateRandomMessagePosition(props) {
+export default function CreateMessageCardPosition(props) {
   const [form] = Form.useForm();
 
   const navigate = useNavigate();
 
-  const [amount, get_amount] = useRandomMessageAmount();
+  const [amount, get_amount] = useMessageCardAmount();
 
   /** 保存订单稍后支付 **/
   const handleSaveOrder = useCallback(async () => {
     const position_info = await form.validateFields();
     await create_position(position_info);
-    await navigate("/position/random_message_position_record");
+    await navigate("/position/message_card_position_record");
   }, [form, navigate]);
 
   const handleCreateAndPay = useCallback(async () => {
@@ -35,7 +35,7 @@ export default function CreateRandomMessagePosition(props) {
 
   return (
     <PageContainer
-      content="投放随机信息流广告"
+      content="投放信息卡片广告"
       footer={[
         (<span key="1">{amount} (USDT)</span>),
         (<Button key="2" type="primary">预览效果</Button>),
@@ -49,11 +49,11 @@ export default function CreateRandomMessagePosition(props) {
 };
 
 
-CreateRandomMessagePosition.propTypes = {
+CreateMessageCardPosition.propTypes = {
 
 
 };
-CreateRandomMessagePosition.defaultProps = {
+CreateMessageCardPosition.defaultProps = {
 
 
 };

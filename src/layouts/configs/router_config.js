@@ -15,7 +15,7 @@ export default {
       path: "/position/video_paster_position_record"
     }, {
       name: "随机信息流广告位",
-      path: "/position/random_message_position_record"
+      path: "/position/message_card_position_record"
     }]
   }, {
     name: "订单列表",

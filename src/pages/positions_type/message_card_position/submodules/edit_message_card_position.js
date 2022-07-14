@@ -12,16 +12,16 @@ import { PageContainer } from "@ant-design/pro-components";
 import EditPositionForm from "../forms/edit_position_form";
 import modify_position from "../services/modify_position";
 import get_position_detail from "../services/get_position_detail";
-import useRandomMessageAmount from "../hooks/useRandomMessageAmount";
+import useMessageCardAmount from "../hooks/useMessageCardAmount";
 
-export default function EditRandomMessagePosition(props) {
+export default function EditMessageCardPosition(props) {
   const [form] = Form.useForm();
 
   const navigate = useNavigate();
 
   const [search_params] = useSearchParams();
 
-  const [amount, get_amount] = useRandomMessageAmount();
+  const [amount, get_amount] = useMessageCardAmount();
 
   const [initial_values, set_initial_values] = useState(false);
 
@@ -39,7 +39,7 @@ export default function EditRandomMessagePosition(props) {
     const position_info = await form.validateFields();
     const position_id = search_params.get("position_id");
     await modify_position(position_id, position_info);
-    await navigate("/position/random_message_position_record");
+    await navigate("/position/message_card_position_record");
   }, [form, navigate, search_params]);
 
   const handleCreateAndPay = useCallback(async () => {
@@ -48,7 +48,7 @@ export default function EditRandomMessagePosition(props) {
 
   return (
     <PageContainer
-      content={`编辑随机信息流广告-${search_params.get("position_id")}`}
+      content={`编辑信息卡片广告-${search_params.get("position_id")}`}
       footer={initial_values ? [
         (<span key="1">{amount} (USDT)</span>),
         (<Button key="2" type="primary">预览效果</Button>),
@@ -62,11 +62,11 @@ export default function EditRandomMessagePosition(props) {
 };
 
 
-EditRandomMessagePosition.propTypes = {
+EditMessageCardPosition.propTypes = {
 
 
 };
-EditRandomMessagePosition.defaultProps = {
+EditMessageCardPosition.defaultProps = {
 
 
 };
