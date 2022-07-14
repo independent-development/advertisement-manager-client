@@ -18,7 +18,7 @@ export default function BasicLayout(props) {
   const navigate = useNavigate();
   const auth_info = useAuthInfo();
   const { pathname } = useLocation();
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   useEffect(() => {
     if (pathname === "/") {
@@ -41,7 +41,12 @@ export default function BasicLayout(props) {
           arrowPointAtCenter
           content={(<AvatarContent {...auth_info} />)}
         >
-          <Avatar icon={(<UserOutlined />)} />
+          <Space style={{ cursor: "pointer" }}>
+            <Avatar icon={(<UserOutlined />)} />
+            <div style={{ color: "#888888" }}>
+              {auth_info.username}
+            </div>
+          </Space>
         </Popover>
       </Space>
     )
@@ -60,6 +65,7 @@ export default function BasicLayout(props) {
       route={router_config}
       collapsed={collapsed}
       collapsedButtonRender={false}
+      menu={{ defaultOpenAll: true }}
       menuItemRender={handleItemRender}
       rightContentRender={handleRightContentRender}
       onCollapse={setCollapsed}
