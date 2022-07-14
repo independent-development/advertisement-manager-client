@@ -13,10 +13,7 @@ import form_config from "./configs/form_config";
 
 import CalculateType from "./form_items/calculate_type";
 import CalculateValue from "./form_items/calculate_value";
-import Placeholder from "./form_items/pleaceholder";
-import SubjectDetail from "./form_items/subject_detail";
-import ContentType from "./form_items/content_type";
-import ResourceLinkType from "./form_items/resource_link_type";
+import LengthWidthRatio from "./form_items/length_width_ratio";
 import ResourceLink from "./form_items/resource_link";
 import CommodityTitle from "./form_items/commodity_title";
 import CommodityDiscription from "./form_items/commodity_discription";
@@ -29,8 +26,6 @@ export default function CreateCommodityForm(props) {
     const clone_initial_values = { ...initialValues };
     clone_initial_values.calculate_type = "DAY";
     clone_initial_values.calculate_value = 1;
-    clone_initial_values.content_type = "IMAGE";
-    clone_initial_values.resource_type = "OSS_URL";
     return clone_initial_values;
   }, [initialValues]);
 
@@ -44,12 +39,9 @@ export default function CreateCommodityForm(props) {
         <ProCard title="基础费用配置">
           <CalculateType />
           <CalculateValue />
-          <SubjectDetail />
-          <Placeholder />
         </ProCard>
         <ProCard title="详细配置">
-          <ContentType />
-          <ResourceLinkType />
+          <LengthWidthRatio />
           <ResourceLink />
           <CommodityTitle />
           <CommodityDiscription />

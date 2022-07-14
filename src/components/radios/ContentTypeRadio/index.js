@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Radio } from "antd";
 import React, { useCallback } from "react";
-import { VideoCameraOutlined, FileImageOutlined, Html5Outlined } from "@ant-design/icons";
+import { VideoCameraOutlined, FileImageOutlined } from "@ant-design/icons";
 // import classnames from "classnames";
 // import propTypes from "prop-types";
 
@@ -25,10 +25,6 @@ export default function ContentTypeRadio(props) {
       <Radio.Button value="VIDEO" style={{ width: 100, textAlign: "center" }}>
         <VideoCameraOutlined />
         <span>视频</span>
-      </Radio.Button>
-      <Radio.Button value="HTML5" style={{ width: 100, textAlign: "center" }}>
-        <Html5Outlined />
-        <span>HTML5</span>
       </Radio.Button>
     </Radio.Group>
   )

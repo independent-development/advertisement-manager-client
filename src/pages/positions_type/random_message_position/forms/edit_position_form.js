@@ -12,8 +12,8 @@ import { ProCard } from "@ant-design/pro-components";
 import form_config from "./configs/form_config";
 
 import CalculateType from "./form_items/calculate_type";
-import ResourceLinkType from "./form_items/resource_link_type";
 import CalculateValue from "./form_items/calculate_value";
+import LengthWidthRatio from "./form_items/length_width_ratio";
 import ResourceLink from "./form_items/resource_link";
 import CommodityTitle from "./form_items/commodity_title";
 import CommodityDiscription from "./form_items/commodity_discription";
@@ -55,7 +55,7 @@ export default function EditPositionForm(props) {
           <CalculateValue />
         </ProCard>
         <ProCard title="详细配置">
-          <ResourceLinkType />
+          <LengthWidthRatio />
           <ResourceLink />
           <CommodityTitle />
           <CommodityDiscription />

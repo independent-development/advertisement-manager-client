@@ -13,10 +13,6 @@ import form_config from "./configs/form_config";
 
 import CalculateType from "./form_items/calculate_type";
 import CalculateValue from "./form_items/calculate_value";
-import Placeholder from "./form_items/pleaceholder";
-import SubjectDetail from "./form_items/subject_detail";
-import ContentType from "./form_items/content_type";
-import ResourceLinkType from "./form_items/resource_link_type";
 import ResourceLink from "./form_items/resource_link";
 import CommodityTitle from "./form_items/commodity_title";
 import CommodityDiscription from "./form_items/commodity_discription";
@@ -44,12 +40,8 @@ export default function CreateCommodityForm(props) {
         <ProCard title="基础费用配置">
           <CalculateType />
           <CalculateValue />
-          <SubjectDetail />
-          <Placeholder />
         </ProCard>
         <ProCard title="详细配置">
-          <ContentType />
-          <ResourceLinkType />
           <ResourceLink />
           <CommodityTitle />
           <CommodityDiscription />

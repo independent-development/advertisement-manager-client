@@ -20,7 +20,7 @@ const dev_inject = {
   random_message_position_initial_values: {
     calculate_type: "NUMBER",
     calculate_value: 1000,
-    resource_type: "OSS_URL",
+    length_width_ratio: "W1H1",
     resource_link: "https://ewr1.vultrobjects.com/test-bucket-002/4ba4e20401b8bdc4845ea6ecfa02e8ba.jpeg"
   }
 };

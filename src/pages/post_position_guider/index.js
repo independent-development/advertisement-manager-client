@@ -34,17 +34,14 @@ export default function PostPositionGuider(props) {
       <CheckCard.Group style={{ width: "100%" }} value={value} onChange={(value) => set_value(value)}>
         <CheckCard
           value="fixed"
-          title="固定广告位"
+          title="首页Banner位固定广告"
           avatar={image_icon}
           style={{ width: "100%", height: 100 }}
           description={(
             <div>
               在网站或者应用的的
-              <strong style={{ color: "black" }}>特定页面</strong>的
-              <strong style={{ color: "black" }}>固定广告</strong>
-              位上进行展示,收费较高,支持
-              <strong style={{ color: "black" }}>按量计费</strong>和
-              <strong style={{ color: "black" }}>定价计费</strong>
+              <strong style={{ color: "black" }}>首页Banner位上</strong>
+              进行展示,收费较高
             </div>
           )}
         />
@@ -62,12 +59,18 @@ export default function PostPositionGuider(props) {
           style={{ width: "100%", height: 100 }}
           description={(
             <div>
-              在<strong style={{ color: "black" }}>详情页</strong>展示一定的次数,
-              只支持<strong style={{ color: "black" }}>按量计费</strong>
+              以
+              <strong style={{ color: "black" }}>16:9</strong>
+              或者
+              <strong style={{ color: "black" }}>4:3</strong>
+              或者
+              <strong style={{ color: "black" }}>1:1</strong>
+              大小的卡片形式在<strong style={{ color: "black" }}>非首页之外</strong>
+              的地方进行展示
             </div>
           )}
         />
-        <CheckCard
+        {/* <CheckCard
           value="paster"
           title="视频贴片广告位"
           avatar={(
@@ -80,7 +83,7 @@ export default function PostPositionGuider(props) {
               或<strong style={{ color: "black" }}>播放途中</strong>插入的广告
             </div>
           )}
-        />
+        /> */}
       </CheckCard.Group>
       <Button block size="large" type="primary" onClick={hendleNavigate}>开始投放</Button>
     </ProCard>
