@@ -21,7 +21,7 @@ export default function MessageCardPositionRecord(props) {
   useEffect(() => { handleGetRecordList() }, [handleGetRecordList]);
 
   return (
-    <PageContainer content="广告位">
+    <PageContainer content="信息卡片广告位">
       <OrderList dataSource={data_source} />
     </PageContainer>
   )

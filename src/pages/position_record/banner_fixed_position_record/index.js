@@ -21,7 +21,7 @@ export default function BannerFixedPositionRecord(props) {
   useEffect(() => { handleGetRecordList() }, [handleGetRecordList]);
 
   return (
-    <PageContainer content="广告位">
+    <PageContainer content="Banner广告位">
       <OrderList dataSource={data_source} />
     </PageContainer>
   )

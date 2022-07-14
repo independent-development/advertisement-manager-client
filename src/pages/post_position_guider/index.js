@@ -15,7 +15,7 @@ import image_icon from "./assets/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg";
 export default function PostPositionGuider(props) {
   const navigate = useNavigate();
 
-  const [value, set_value] = useState("random");
+  const [value, set_value] = useState("card");
 
   const hendleNavigate = useCallback(async () => {
     if (value === "fixed") {
@@ -71,9 +71,15 @@ export default function PostPositionGuider(props) {
             </div>
           )}
         />
-        {/* <CheckCard
+        <CheckCard
+          disabled
           value="paster"
-          title="视频贴片广告位"
+          title={(
+            <div>
+              <span>视频贴片广告位</span>
+              <Tag color="default">暂未上线</Tag>
+            </div>
+          )}
           avatar={(
             <Avatar size={55} style={{ backgroundColor: "#3b5999" }} icon={(<VideoCameraAddOutlined style={{ fontSize: 40, marginTop: 8 }} />)} />
           )}
@@ -84,7 +90,7 @@ export default function PostPositionGuider(props) {
               或<strong style={{ color: "black" }}>播放途中</strong>插入的广告
             </div>
           )}
-        /> */}
+        />
       </CheckCard.Group>
       <Button block size="large" type="primary" onClick={hendleNavigate}>开始投放</Button>
     </ProCard>
