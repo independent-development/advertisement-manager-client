@@ -17,18 +17,17 @@ import AvatarContent from "./components/AvatarContent";
 export default function BasicLayout(props) {
   const navigate = useNavigate();
   const auth_info = useAuthInfo();
+  const { pathname } = useLocation();
   const [collapsed, setCollapsed] = useState(false);
 
-  // const { pathname } = useLocation();
+  useEffect(() => {
+    if (pathname === "/") {
+      navigate("/")
+    }
+  }, [pathname, navigate]);
 
-  // useEffect(() => {
-  //   if (pathname === "/") {
-  //     navigate("/")
-  //   }
-  // }, [pathname, navigate]);
-
-  const handleToCreatePostPosition = useCallback(() => {
-    navigate("post_position_guider");
+  const handleToCreatePostPosition = useCallback(async () => {
+    await navigate("post_position_guider");
   }, [navigate]);
 
   const handleRightContentRender = useCallback(() => {
