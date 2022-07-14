@@ -27,6 +27,13 @@ export default function OrderList(props) {
       );
     }
   }, {
+    title: "标题文案",
+    align: "center",
+    dataIndex: "title",
+    render(value) {
+      return value || "无"
+    }
+  }, {
     title: "投放状态",
     align: "center",
     render({ active_status }) {
