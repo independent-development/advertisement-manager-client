@@ -17,7 +17,7 @@ const dev_inject = {
     e_mail: "1542874601@qq.com"
   },
   banner_fixed_position_initial_values: {
-    calculate_type: "DAYS",
+    calculate_type: "DAY",
     calculate_value: 1,
     length_width_ratio: "W25H7",
   },
