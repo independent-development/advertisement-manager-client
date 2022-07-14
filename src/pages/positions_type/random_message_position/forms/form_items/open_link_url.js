@@ -7,7 +7,7 @@ import validator from "validator";
 
 // import css from "./style.scss";
 // import css from "./style.less";
-import CommodityLinkURLInput from "@/components/inputer/CommodityLinkURLInput";
+import OpenLinkURLInput from "@/components/inputer/OpenLinkURLInput";
 
 const link_url = [{
   required: false,
@@ -23,20 +23,20 @@ const link_url = [{
   message: "请检查跳转链接的格式!",
 }];
 
-export default function CommodityLinkURL(props) {
+export default function OpenLinkURL(props) {
   return (
-    <Form.Item name="link_url" label="跳转链接" rules={link_url} validateTrigger="onBlur">
-      <CommodityLinkURLInput />
+    <Form.Item name="open_link_url" label="跳转链接" rules={link_url} validateTrigger="onBlur">
+      <OpenLinkURLInput />
     </Form.Item>
   )
 };
 
 
-CommodityLinkURL.propTypes = {
+OpenLinkURL.propTypes = {
 
 
 };
-CommodityLinkURL.defaultProps = {
+OpenLinkURL.defaultProps = {
 
 
 };

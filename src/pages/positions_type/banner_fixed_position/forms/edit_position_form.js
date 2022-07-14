@@ -16,7 +16,7 @@ import CalculateValue from "./form_items/calculate_value";
 import ResourceLink from "./form_items/resource_link";
 import CommodityTitle from "./form_items/commodity_title";
 import CommodityDiscription from "./form_items/commodity_discription";
-import CommodityLinkURL from "./form_items/commodity_link_url";
+import OpenLinkURL from "./form_items/open_link_url";
 
 export default function EditPositionForm(props) {
   const { form, initialValues, ...otherProps } = props;
@@ -51,7 +51,7 @@ export default function EditPositionForm(props) {
           <ResourceLink />
           <CommodityTitle />
           <CommodityDiscription />
-          <CommodityLinkURL />
+          <OpenLinkURL />
         </ProCard>
       </ProCard>
     </Form>

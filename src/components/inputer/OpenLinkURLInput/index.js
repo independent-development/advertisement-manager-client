@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Input, Button } from "antd";
-// import classnames from "classnames";
 // import propTypes from "prop-types";
+// import classnames from "classnames";
 
 // import css from "./style.scss";
 // import css from "./style.less";
 
-export default function CommodityLinkURLInput(props) {
+export default function OpenLinkURLInput(props) {
   const { value, onChange, ...otherProps } = props;
   return (
     <Input.Group compact>
@@ -18,10 +18,10 @@ export default function CommodityLinkURLInput(props) {
 };
 
 
-CommodityLinkURLInput.propTypes = {
+OpenLinkURLInput.propTypes = {
 
 };
-CommodityLinkURLInput.defaultProps = {
+OpenLinkURLInput.defaultProps = {
   value: "",
   onChange() { }
 };

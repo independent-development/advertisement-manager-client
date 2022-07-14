@@ -17,7 +17,7 @@ import LengthWidthRatio from "./form_items/length_width_ratio";
 import ResourceLink from "./form_items/resource_link";
 import CommodityTitle from "./form_items/commodity_title";
 import CommodityDiscription from "./form_items/commodity_discription";
-import CommodityLinkURL from "./form_items/commodity_link_url";
+import OpenLinkURL from "./form_items/open_link_url";
 
 export default function CreateCommodityForm(props) {
   const { form, initialValues, onValuesChange, ...otherProps } = props;
@@ -46,7 +46,7 @@ export default function CreateCommodityForm(props) {
           <ResourceLink />
           <CommodityTitle />
           <CommodityDiscription />
-          <CommodityLinkURL />
+          <OpenLinkURL />
         </ProCard>
       </ProCard>
     </Form>
