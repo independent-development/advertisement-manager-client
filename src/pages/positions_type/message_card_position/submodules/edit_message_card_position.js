@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { Form, Button } from "antd";
+import { v4 as uuidv4 } from "uuid";
+import { Form, Button, message } from "antd";
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { PageContainer } from "@ant-design/pro-components";
@@ -36,10 +37,17 @@ export default function EditMessageCardPosition(props) {
 
   /** 保存订单稍后支付 **/
   const handleSaveModify = useCallback(async () => {
-    const position_info = await form.validateFields();
-    const position_id = search_params.get("position_id");
-    await modify_position(position_id, position_info);
-    await navigate("/position/message_card_position_record");
+    const message_key = uuidv4();
+    try {
+      const position_info = await form.validateFields();
+      message.loading({ key: message_key, content: "正在提交,请稍后... ...", duration: 0 });
+      const position_id = search_params.get("position_id");
+      await modify_position(position_id, position_info);
+      await navigate("/position/message_card_position_record");
+      message.success({ key: message_key, content: "提交成功!" });
+    } catch (error) {
+      message.error({ key: message_key, content: error.message });
+    }
   }, [form, navigate, search_params]);
 
   const handleCreateAndPay = useCallback(async () => {

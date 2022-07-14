@@ -9,10 +9,9 @@ import React from "react";
 import ImageUploadInput from "@/components/inputer/ImageUploadInput";
 
 export default function ResourceLinkInput(props) {
-  const { content_type, resource_type, value, onChange, ...otherProps } = props;
-
+  const { value, onChange, length_width_ratio, ...otherProps } = props;
   return (
-    <ImageUploadInput value={value} onChange={onChange} {...otherProps} />
+    <ImageUploadInput {...otherProps} length_width_ratio={length_width_ratio} value={value} onChange={onChange} />
   )
 };
 

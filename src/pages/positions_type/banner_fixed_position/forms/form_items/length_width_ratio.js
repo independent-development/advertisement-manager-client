@@ -15,9 +15,16 @@ const rules = [{
 
 export default function LengthWidthRatio(props) {
   return (
-    <Form.Item label="内容长宽比" name="length_width_ratio" rules={rules}>
-      <LengthWidthRatioRadio />
+    <Form.Item noStyle shouldUpdate>
+      {(form) => {
+        return (
+          <Form.Item label="内容长宽比" name="length_width_ratio" rules={rules}>
+            <LengthWidthRatioRadio form={form} />
+          </Form.Item>
+        )
+      }}
     </Form.Item>
+
   )
 };
 

@@ -2,7 +2,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { Upload, message } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 // import propTypes from "prop-types";
 // import classnames from "classnames";
@@ -18,6 +18,13 @@ export default function ImageUploadInput(props) {
   const { value, onChange, length_width_ratio, ...otherProps } = props;
 
   const [file_list, set_file_list] = useState(get_filelist_detail(value));
+
+  useEffect(() => {
+    const format_list = get_filelist_detail(value);
+    set_file_list(format_list);
+  }, [value]);
+
+  console.log(file_list);
 
   const handleAction = useCallback(async ({ file: file_object }) => {
     const upload_message_key = uuidv4();
