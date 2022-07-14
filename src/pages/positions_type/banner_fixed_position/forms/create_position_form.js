@@ -24,8 +24,7 @@ export default function CreateCommodityForm(props) {
 
   const computed_initial_values = useMemo(() => {
     const clone_initial_values = { ...initialValues };
-    clone_initial_values.calculate_type = "DAY";
-    clone_initial_values.calculate_value = 1;
+    clone_initial_values.length_width_ratio = "W25H7";
     return clone_initial_values;
   }, [initialValues]);
 
@@ -58,5 +57,5 @@ CreateCommodityForm.propTypes = {
 };
 
 CreateCommodityForm.defaultProps = {
-  initialValues: getProperty(window, "dev_inject.position_initial_values", {})
+  initialValues: getProperty(window, "dev_inject.banner_fixed_position_initial_values", {})
 };

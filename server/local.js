@@ -16,6 +16,11 @@ const dev_inject = {
     password: "123456",
     e_mail: "1542874601@qq.com"
   },
+  banner_fixed_position_initial_values: {
+    calculate_type: "DAYS",
+    calculate_value: 1,
+    length_width_ratio: "W25H7",
+  },
   /** 广告位表单初始值 **/
   random_message_position_initial_values: {
     calculate_type: "NUMBER",

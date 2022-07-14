@@ -9,6 +9,8 @@ import { ProCard } from "@ant-design/pro-components";
 // import css from "./style.scss";
 // import css from "./style.less";
 
+import ViewPosition from "@/components/view/ViewPosition";
+
 import form_config from "./configs/form_config";
 
 import CalculateType from "./form_items/calculate_type";

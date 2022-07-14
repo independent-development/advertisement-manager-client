@@ -15,7 +15,7 @@ import get_filelist_detail from "@/utils/upload/get_filelist_detail";
 
 export default function ImageUploadInput(props) {
 
-  const { value, onChange, length_width_ratio, ...otherProps } = props;
+  const { upload_url, value, onChange, length_width_ratio, ...otherProps } = props;
 
   const [file_list, set_file_list] = useState(get_filelist_detail(value));
 
@@ -24,15 +24,15 @@ export default function ImageUploadInput(props) {
     set_file_list(format_list);
   }, [value]);
 
-  console.log(file_list);
-
   const handleAction = useCallback(async ({ file: file_object }) => {
     const upload_message_key = uuidv4();
     try {
       message.loading({ content: "正在上传... ...", key: upload_message_key, duration: 0 });
-      const oss_url = await upload_request({
-        file_object, length_width_ratio
+      const oss_url = await upload_request(upload_url, {
+        file_object,
+        length_width_ratio
       });
+      console.log(oss_url);
       await set_file_list(get_filelist_detail(oss_url));
       await onChange(oss_url);
       message.success({ content: "上传成功", key: upload_message_key });
@@ -80,5 +80,6 @@ ImageUploadInput.propTypes = {
 ImageUploadInput.defaultProps = {
   value: "",
   onChange() { },
+  async onUploadAction() { },
   length_width_ratio: ""
 };

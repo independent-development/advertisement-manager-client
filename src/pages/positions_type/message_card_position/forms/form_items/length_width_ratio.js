@@ -7,7 +7,7 @@ import { Form } from "antd";
 // import css from "./style.scss";
 // import css from "./style.less";
 
-import LengthWidthRatioRadio from "@/components/radios/LengthWidthRatioRadio";
+import LengthWidthRatioRadio from "../../components/LengthWidthRatioRadio";
 
 const rules = [{
   required: true, message: "请选择内容长宽比"

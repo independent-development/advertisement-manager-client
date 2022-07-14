@@ -19,7 +19,7 @@ export default function ResourceLink(props) {
       {(form) => {
         return (
           <Form.Item name="resource_link" label="资源内容" rules={resource_link}>
-            <ResourceLinkInput length_width_ratio={form.getFieldValue("length_width_ratio")} />
+            <ResourceLinkInput upload_url="/api/ad/system/v1/upload_banner_fixed" length_width_ratio={form.getFieldValue("length_width_ratio")} />
           </Form.Item>
         )
       }}

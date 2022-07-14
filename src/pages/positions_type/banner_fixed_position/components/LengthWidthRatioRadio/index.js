@@ -17,9 +17,7 @@ export default function LengthWidthRatioRadio(props) {
 
   return (
     <Radio.Group buttonStyle="solid" value={value} onChange={handleChange}>
-      <Radio.Button value="W16H9">16:9</Radio.Button>
-      <Radio.Button value="W4H3">4:3</Radio.Button>
-      <Radio.Button value="W1H1">1:1</Radio.Button>
+      <Radio.Button value="W25H7">25:7(长方形通栏)</Radio.Button>
     </Radio.Group>
   )
 };
